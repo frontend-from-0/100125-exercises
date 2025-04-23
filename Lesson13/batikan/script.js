@@ -80,9 +80,9 @@ const randomFrom2To10 = Math.random() * 8 + 2;
 console.log('Ex.11', Math.floor(randomFrom2To10));
 
 // 12. Round the number 3.7 down using Math.floor and 3.2 up using Math.ceil, log both.
-let xr = Math.floor(3.7);
+const xr = Math.floor(3.7);
 console.log(xr);
-let xu = Math.ceil(3.2);
+const xu = Math.ceil(3.2);
 console.log('Ex.12', xu);
 
 
@@ -102,19 +102,19 @@ console.log('Ex.15', points);
 
 // 16. Declare name="Alice", age=30, city="Paris". Log "Alice (30) lives in Paris" using template literals.
 const nName = "Alice"
-let age = 30;
+const age = 30;
 const city = "Paris"
 console.log('Ex.16', ` ${nName} (${age}) lives in ${city}`);
 
 // 17. Declare variables x=5, y=10, z=15. Log their total sum.
-let xX = 5;
-let yY = 10;
-let zZ= 15;
+const xX = 5;
+const yY = 10;
+const zZ= 15;
 console.log('Ex.17', xX + yY + zZ);
 
 // 18. Declare dividend=10 and divisor=3. Log the quotient (divisionResult) and difference (differenceResult).
-let dividend = 10;
-let divisor = 3;
+const dividend = 10;
+const divisor = 3;
 const differenceResult = dividend / divisor;
 console.log('Ex.18', differenceResult);
 
@@ -145,8 +145,7 @@ console.log('Ex.22', counterR);
 
 // 23. Declare initialTemperature=20. Increase it by 5 and log the result.
 let initialTemperature = 20;
-let increasedTemperature = initialTemperature + 5;
-console.log('Ex.23', increasedTemperature);
+console.log('Ex.23', initialTemperature + 5);
 
 // 24. Declare numberEx9=6. Increment it using the prefix ++ operator and log both the variable and the incremented value.
 let numberEx9 = 6;

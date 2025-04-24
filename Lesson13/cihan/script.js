@@ -186,5 +186,6 @@ console.log('Ex.26', finalValueEx11);
 let a = 2;
 let b = 3;
 let incrementedA = ++a;
-let sum = incrementedA + b;
+const sum = ++a + b;
+
 console.log('Ex.27', sum);

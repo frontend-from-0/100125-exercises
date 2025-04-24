@@ -178,7 +178,8 @@ console.log('Ex.25', incrementedValuePostfix);
 // CODE HERE
 let numberEx11 = -3;
 let incrementedValueEx11 = ++numberEx11;
-let finalValueEx11 = incrementedValueEx11 * 2;
+const finalValueEx11 = ++numberEx11 * 2;
+
 console.log('Ex.26', finalValueEx11);
 
 // 27. Declare a=2 and b=3. Increment a using the prefix ++ operator, then add b to the result and log it.

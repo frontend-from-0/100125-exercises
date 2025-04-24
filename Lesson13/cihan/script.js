@@ -86,7 +86,7 @@ console.log('Ex12', Math.ceil(3.2));
 
 // 13. Declare a boolean variable isStudent = true. Log it.
 // CODE HERE
-let isStudent = true;
+const isStudent = true;
 console.log('Ex.13', isStudent);
 
 // 14. Initialize counter = 0, then increment it by 1 using counter++ and log it.
@@ -103,39 +103,39 @@ console.log('Ex.15', points);
 
 // 16. Declare name="Alice", age=30, city="Paris". Log "Alice (30) lives in Paris" using template literals.
 // CODE HERE
-let name = 'Alice';
-let age = 30;
-let city = 'Paris';
+const name = 'Alice';
+const age = 30;
+const city = 'Paris';
 console.log(`${name} (${age}) lives in ${city}`); 
 
 // 17. Declare variables x=5, y=10, z=15. Log their total sum.
 // CODE HERE
-let x = 5;
-let y = 10;
-let z = 15;
+const x = 5;
+const y = 10;
+const z = 15;
 console.log('Ex.17', x + y + z);
 
 // 18. Declare dividend=10 and divisor=3. Log the quotient (divisionResult) and difference (differenceResult).
 // CODE HERE
-let dividend = 10;
-let divisor = 3;
-let divisionResult = dividend / divisor;
-let differenceResult = dividend - divisor;
+const dividend = 10;
+const divisor = 3;
+const divisionResult = dividend / divisor;
+const differenceResult = dividend - divisor;
 console.log('Ex.18', 'Quotient: ', divisionResult);
 console.log('Ex.18', 'Difference: ', differenceResult);
 
 // 19. Declare firstName and lastName. Create fullName by concatenating them with a space and log it.
 // CODE HERE
-let firstName = 'Cihan';
-let lastName = 'Kılıç';
-let fullName = firstName + ' ' + lastName;
+const firstName = 'Cihan';
+const lastName = 'Kılıç';
+const fullName = firstName + ' ' + lastName;
 console.log('Ex.19', fullName);
 
 // 20. Declare firstFactor=7 and secondFactor=2. Log the product.
 // CODE HERE
-let firstFactor = 7;
-let secondFactor = 2;
-let product = firstFactor * secondFactor;
+const firstFactor = 7;
+const secondFactor = 2;
+const product = firstFactor * secondFactor;
 console.log('Ex.20', product);
 
 // 21. Log the value of Math.PI.
@@ -161,7 +161,7 @@ console.log('Ex.23', initialTemperature);
 // 24. Declare numberEx9=6. Increment it using the prefix ++ operator and log both the variable and the incremented value.
 // CODE HERE
 let numberEx9 = 6;
-let incrementedValue = ++numberEx9;
+const incrementedValue = ++numberEx9;
 numberEx9 = ++numberEx9;
 console.log('Ex.24', numberEx9);
 console.log('Ex.24', incrementedValue);
@@ -178,13 +178,13 @@ console.log('Ex.25', incrementedValuePostfix);
 // CODE HERE
 let numberEx11 = -3;
 let incrementedValueEx11 = ++numberEx11;
-let finalValueEx11 = incrementedValueEx11 * 2;
+const finalValueEx11 = incrementedValueEx11 * 2;
 console.log('Ex.26', finalValueEx11);
 
 // 27. Declare a=2 and b=3. Increment a using the prefix ++ operator, then add b to the result and log it.
 // CODE HERE
 let a = 2;
-let b = 3;
+const b = 3;
 let incrementedA = ++a;
-let sum = incrementedA + b;
+const sum = incrementedA + b;
 console.log('Ex.27', sum);

@@ -170,7 +170,7 @@ console.log('Ex.24', incrementedValue);
 // CODE HERE
 let numberEx10 = 8;
 let incrementedValuePostfix = numberEx10++;
-numberEx10 = numberEx10++;
+numberEx10++;
 console.log('Ex.25', numberEx10);
 console.log('Ex.25', incrementedValuePostfix);
 

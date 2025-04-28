@@ -183,5 +183,5 @@ console.log('Ex.26' , finalValue);
 
 let a2 = 2;
 const b2 = 3;
-result = ++a2 + b2;
+const result = ++a2 + b2;
 console.log('Ex. 27' , result);

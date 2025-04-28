@@ -149,7 +149,7 @@ counter1++;
 console.log('Ex. 22' , counter1);
 
 counter1+=1;
-console.log('Ex. 22'. counter1);
+console.log('Ex. 22', counter1);
 
 counter1=counter1+1;
 console.log('Ex. 22' , counter1);

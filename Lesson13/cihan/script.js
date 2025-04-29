@@ -169,8 +169,7 @@ console.log('Ex.24', incrementedValue);
 // 25. Declare numberEx10=8. Increment it using the postfix ++ operator and log both the original variable and the incremented value.
 // CODE HERE
 let numberEx10 = 8;
-let incrementedValuePostfix = numberEx10++;
-numberEx10++;
+const incrementedValuePostfix = numberEx10++;
 console.log('Ex.25', numberEx10);
 console.log('Ex.25', incrementedValuePostfix);
 
@@ -178,25 +177,10 @@ console.log('Ex.25', incrementedValuePostfix);
 // CODE HERE
 let numberEx11 = -3;
 let incrementedValueEx11 = ++numberEx11;
-<<<<<<< HEAD
-const finalValueEx11 = incrementedValueEx11 * 2;
-=======
-const finalValueEx11 = ++numberEx11 * 2;
-
->>>>>>> 17159a717a5c003442598a93ef95e6d9babf1b6f
-console.log('Ex.26', finalValueEx11);
 
 // 27. Declare a=2 and b=3. Increment a using the prefix ++ operator, then add b to the result and log it.
 // CODE HERE
 let a = 2;
 const b = 3;
-<<<<<<< HEAD
-let incrementedA = ++a;
-const sum = incrementedA + b;
-=======
-
-let incrementedA = ++a;
 const sum = ++a + b;
-
->>>>>>> 17159a717a5c003442598a93ef95e6d9babf1b6f
 console.log('Ex.27', sum);

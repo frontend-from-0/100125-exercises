@@ -18,7 +18,7 @@ function normalizeEmail(email) {
 */
 function checkFileExtension(filename) {
    if (filename.endsWith('.pdf'))
-      cpnsole.log('This is a PDF file.');
+      console.log('This is a PDF file.');
    else
       console.log('Not a PDF file.');
 /*
@@ -33,9 +33,9 @@ function compareNumbers(a, b) {
       console.log('a is bigger');
    }
    else if (b > a) {
-      console.log(b is bigger);
+      console.log('b is bigger');
    }
-   else if(a = b) {
+   else if(a === b) {
       console.log('Number are equal');
    }
 }
@@ -108,14 +108,29 @@ checkProtocol("https://example.com");
 */
 function getDayOfWeek(num) {
    switch (num) {
-      case 1: console.log("Monday"); break;
-      case 2: console.log("Tuesday"); break;
-      case 3: console.log("Wednesday"); break;
-      case 4: console.log("Thursday"); break;
-      case 5: console.log("Friday"); break;
-      case 6: console.log("Saturday"); break;
-      case 7: console.log("Sunday"); break;
-      default: console.log("Invalid day");
+      case 1: 
+         console.log("Monday"); 
+            break;
+      case 2: 
+         console.log("Tuesday"); 
+            break;
+      case 3: 
+         console.log("Wednesday"); 
+            break;
+      case 4: 
+         console.log("Thursday"); 
+            break;
+      case 5: 
+         console.log("Friday"); 
+            break;
+      case 6: 
+         console.log("Saturday"); 
+            break;
+      case 7: 
+         console.log("Sunday"); 
+            break;
+      default: 
+         console.log("Invalid day");
       }
       }
       getDayOfWeek(3);
@@ -148,10 +163,10 @@ censorWord("This is a bad example with bad words", "bad");
    - Log "Starts with A" or "Does not start with A".
 */
 function startsWithA(str) {
-   if(str.charAt(0) === "A") {
+   if(str.charAt(0).toUpperCase() === "A") {
       console.log("Starts with A");
    } else {
-      console.log("Does not startt with A");
+      console.log("Does not start with A");
    }
 }
 startsWithA("Apple");
@@ -182,7 +197,7 @@ case (score >= 90): console.log("A"); break;
 case (score >= 80): console.log("B"); break;
 case (score >= 70): console.log("C"); break;
 case (score >= 60): console.log("D"); break;
-case (score <= 60): console.log("F"); break;
+case (score < 60): console.log("F"); break;
    }
 }
 gradeChecker(74);
@@ -273,7 +288,7 @@ function isSpam(text) {
       console.log("This text is spam.");
    }else {
       console.log("This text is not spam.");
-}
+}}
 /*
 23. Extract Initials
    - Define a function `getInitials(fullName)` that uses .split() to get each name part,

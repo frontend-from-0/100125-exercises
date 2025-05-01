@@ -132,7 +132,7 @@ function compareNumbers(a, b) {
     console.log(
       "b is bigger"
     );
-  } else if ( a == b || a === b) {
+  } else if (a === b) {
     console.log(
       "Numbers are equal"
     );
@@ -183,7 +183,7 @@ isPalindrome('racetr');
 function truncateString(text, maxLength) {
 
     if (text.length > maxLength) {
-      console.log(text.slice(0, 23) + "...")
+      console.log(text.slice(0, maxLength) + "...")
     } else {
       console.log(text);
     };   
@@ -218,11 +218,7 @@ evenOrOdd(33);
 */
 
 function checkProtocol(url) {
-  console.log(
-    url.toLowerCase(),
-  );
-  
-  if(url.startsWith("HTTPS") || (url.startsWith("https"))) {
+  if(url.toLowerCase().startsWith("https")) {
     console.log(
       "Secure connection"
     );
@@ -248,31 +244,30 @@ checkProtocol("https://www.CODE2carrer.dev")
 function getDayOfWeek(num){
   switch (num) {
     case 0: 
-    num = "Monday";
+    console.log("Monday");
     break;
     case 1:
-      num = "Tuesday";
+      console.log("Tuesday");
       break;
       case 2: 
-      num = "Wednesday";
+     console.log("Wednesday");
       break;
       case 3:
-        num = "Thursday";
+       console.log("Thursday");
         break;
         case 4: 
-        num = "Friday";
+        console.log("Friday");
         break;
         case 5: 
-        num = "Saturday";
+       console.log("Saturday");
         break;
         case 6:
-          num = "Sunday";
+          console.log("Sunday");
           break;
           default:
-            num = "Invalid Day";    
+            console.log("Invalid Day");    
   };
-  console.log(num)
-};
+}
 
 getDayOfWeek(5);
 getDayOfWeek(12);
@@ -342,10 +337,10 @@ startsWithA("Boolean");
 */
 
 function sliceLastN(text, n) {
-  console.log(text.slice(-4));
+  console.log(text.slice(-n));
 };
 
-sliceLastN("to be or not to be");
+sliceLastN("to be or not to be", 4);
 
 /*
 17. Switch: Grade Checker
@@ -367,38 +362,11 @@ function gradeChecker(score){
   } else if (score >= 60){
     console.log("D");
   } else if (score < 60){
-    console.log("C");
+    console.log("F");
   };
 };
 
 gradeChecker(67);
-
-function gradeCheckerTwo(score2){
-
-  switch(true){
-    case score2 >= 90:
-      score2 = "A";
-      break;
-      case score2 >= 80:
-        score2 = "B";
-        break;
-        case score2 >= 70:
-          score2 = "C";
-          break;
-          case score2 >= 60:
-            score2 = "D";
-            break;
-            default:
-              score2 = "F";
-  };
- console.log(score2);
-};
-
-gradeCheckerTwo(92);
-gradeCheckerTwo(34);
-
-
-
 
 /*
 18. Character Replacement
@@ -462,18 +430,18 @@ titleCase("Bugün hava gerçekten çok sıcak");
 function trafficLight(color){
   switch (color) {
     case "red" :
-      color = console.log("Stop");
+     console.log("Stop");
       break;
       case "yellow" :
-       color = console.log("Caution");
+      console.log("Caution");
         break;
         case "green" :
-          color = console.log("Go");
+          console.log("Go");
           break;
           default:
-           color = console.log("Invalid Color");
+           console.log("Invalid Color");
   };
-};
+}
 
 trafficLight("red");
 trafficLight("purple");
@@ -547,67 +515,33 @@ getInitials("Batıkan Sevil");
 
 function getSeason(monthNum){
   switch (monthNum){
+    case 12:
     case 1:
-      monthNum = "Winter";
+    case 2: 
+      console.log("Winter");
       break;
-      case 2: 
-      monthNum = "Winter";
+    case 3:
+    case 4:
+    case 5:
+      console.log("Spring");
       break;
-      case 3:
-        monthNum = "Spring";
-        break;
-        case 4:
-          monthNum = "Spring";
-          break;
-          case 5:
-            monthNum = "Spring";
-            break;
-            case 6: 
-            monthNum = "Summer";
-            break;
-            case 7:
-              monthNum = "Summer";
-              break;
-              case 8:
-                monthNum = "Summer";
-                break;
-                case 9:
-                  monthNum = "Autumun";
-                  break;
-                  case 10:
-                    monthNum = "Autumun";
-                    break;
-                    case 11: 
-                    monthNum = "Autumun";
-                    case 12:
-                      monthNum = "Winter";
-                      break;
-                      default:
-                        monthNum = "Invalid month";
-
+    case 6: 
+    case 7:
+    case 8:
+      console.log("Summer");
+      break;
+    case 9:
+    case 10:
+    case 11: 
+      console.log("Autumun");
+      break;
+    default:
+      console.log("Invalid month");
   }
-  console.log(monthNum);
 }
 
 getSeason(7);
 getSeason(15);
-
-function getSeason2(monthNum){
-  if(monthNum === 12 && 1 && 2){
-    console.log("Winter");
-  } else if (monthNum === 3 && 4 && 5){
-    console.log("Spring");
-  } else if (monthNum === 6 && 7 && 8){
-    console.log("Summer");
-  } else if (monthNum === 9 && 10 && 11){
-    console.log("Autumn");
-  } else {
-    console.log("Invalid month");
-  };
-};
-
-getSeason2(12);
-getSeason2(18);
 
 /*
 25. Check If String Contains Number

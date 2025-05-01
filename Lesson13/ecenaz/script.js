@@ -62,7 +62,11 @@ console.log(mixedCaseGreeting); // HeLlO WoRlD
 
 // 7. Concatenate "Hello" and "World" with a space in between and log the result.
 // CODE HERE
+const hi = "Hello";
+const world = "World";
+const greetingMessege = hi + " " + world;
 
+console.log('Ex.7', greetingMessege);
 // 8. Check the type of a variable, e.g., let x = 42. Log the type using typeof.
 // CODE HERE
 const x = 42;

@@ -293,7 +293,7 @@ startsWithA("Bananas are yellow.");
 */
 function sliceLastN(text, n) {
    const slicedText = text.slice(-n);
-   console.log(slicied);
+   console.log(slicedText);
 }
 
 sliceLastN("apple", 2);

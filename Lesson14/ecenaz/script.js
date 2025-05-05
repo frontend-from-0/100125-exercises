@@ -214,7 +214,7 @@ switch (num) {
       console.log("Tuesday");
       break;
    case 3:
-      console.log("Wendsday");
+      console.log("Wednesday");
       break;
    case 4:
       console.log("Thursday");

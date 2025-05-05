@@ -566,7 +566,7 @@ findWordPosition("I am trying to understand the structure.", "get");
 function calculate(a, operator, b) {
    switch (operator) {
       case "+":
-         console.log ("a + b");
+         console.log (a + b);
          break;
       case "-":
          console.log ("a - b");

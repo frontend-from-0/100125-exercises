@@ -273,7 +273,7 @@ censorWord("I am learning JS right now", "right now");
    - Log "Starts with A" or "Does not start with A".
 */
 function startsWithA(str) {
-   if (str.charAt(0).startsWith("A")){
+  if (str.charAt(0).toUpperCase() === "A") {
       console.log("Starts with A");
    } else {
       console.log("Does not start with A");

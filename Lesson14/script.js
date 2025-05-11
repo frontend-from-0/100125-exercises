@@ -25,7 +25,85 @@
 /*
 8. Palindrome Check
    - Define a function `isPalindrome(str)` that checks if `str` is the same
-     forwards and backwards.
+     f/*
+21. Check String Length (if-else)
+   - Define a function `isLongString(str)` that checks if the string length
+     is more than 10.
+   - Log "Long string" or "Short string".
+*/
+
+/*
+22. Convert to Lowercase Then Check
+   - Define a function `isSpam(text)` that converts the text to lowercase
+     and checks if it includes "spam".
+   - If it does, log "This text is spam."
+   - Otherwise, log "This text is not spam."
+*/
+
+/*
+23. Extract Initials
+   - Define a function `getInitials(fullName)` that uses .split() to get each name part,
+     then logs the capitalized first letter of each.
+   - Example: "John Doe" -> "J.D."
+*/
+
+/*
+24. Switch: Month to Season
+   - Define a function `getSeason(monthNum)` (1-12). Use switch or if-else:
+     - 12, 1, 2  -> "Winter"
+     - 3, 4, 5   -> "Spring"
+     - 6, 7, 8   -> "Summer"
+     - 9, 10, 11 -> "Autumn"
+   - Log the season or "Invalid month" if out of range.
+*/
+
+/*
+25. Check If String Contains Number
+   - Define a function `containsNumber(str)` that uses a loop or a method like
+     .match() to check if there's any digit in the string.
+   - Log "Contains number" or "No number found".
+*/
+
+/*
+26. Pad a String
+   - Define a function `padString(str, maxLength)` that if str.length < maxLength,
+     uses .padEnd() or .padStart() to make the string reach maxLength with '*'.
+   - Log the padded string.
+*/
+
+/*
+27. If-Else: Voting Eligibility
+   - Define a function `canVote(age)` that logs:
+     - "Can vote" if age >= 18
+     - "Too young to vote" otherwise
+*/
+
+/*
+28. Reverse Words in a Sentence
+   - Define a function `reverseWords(sentence)` that:
+     - Splits the sentence by spaces
+     - Reverses each word individually
+     - Joins them back
+   - Log the result.
+*/
+
+/*
+29. Check Substring Position
+   - Define a function `findWordPosition(sentence, word)` that uses .indexOf(word)
+     to find the starting index. If not found, return -1.
+   - Log the index or log "Not found" if it's -1.
+*/
+
+/*
+30. Switch: Simple Calculator
+   - Define a function `calculate(a, operator, b)` that uses switch to handle:
+     - "+" -> a + b
+     - "-" -> a - b
+     - "*" -> a * b
+     - "/" -> a / b
+     - Otherwise -> "Invalid operator"
+   - Log the result.
+*/orwards and backwards.
    - If it is, log: "<str> is a palindrome"
    - Otherwise, log: "<str> is not a palindrome"
 */
@@ -125,82 +203,3 @@
      - anything else -> "Invalid color"
 */
 
-/*
-21. Check String Length (if-else)
-   - Define a function `isLongString(str)` that checks if the string length
-     is more than 10.
-   - Log "Long string" or "Short string".
-*/
-
-/*
-22. Convert to Lowercase Then Check
-   - Define a function `isSpam(text)` that converts the text to lowercase
-     and checks if it includes "spam".
-   - If it does, log "This text is spam."
-   - Otherwise, log "This text is not spam."
-*/
-
-/*
-23. Extract Initials
-   - Define a function `getInitials(fullName)` that uses .split() to get each name part,
-     then logs the capitalized first letter of each.
-   - Example: "John Doe" -> "J.D."
-*/
-
-/*
-24. Switch: Month to Season
-   - Define a function `getSeason(monthNum)` (1-12). Use switch or if-else:
-     - 12, 1, 2  -> "Winter"
-     - 3, 4, 5   -> "Spring"
-     - 6, 7, 8   -> "Summer"
-     - 9, 10, 11 -> "Autumn"
-   - Log the season or "Invalid month" if out of range.
-*/
-
-/*
-25. Check If String Contains Number
-   - Define a function `containsNumber(str)` that uses a loop or a method like
-     .match() to check if there's any digit in the string.
-   - Log "Contains number" or "No number found".
-*/
-
-/*
-26. Pad a String
-   - Define a function `padString(str, maxLength)` that if str.length < maxLength,
-     uses .padEnd() or .padStart() to make the string reach maxLength with '*'.
-   - Log the padded string.
-*/
-
-/*
-27. If-Else: Voting Eligibility
-   - Define a function `canVote(age)` that logs:
-     - "Can vote" if age >= 18
-     - "Too young to vote" otherwise
-*/
-
-/*
-28. Reverse Words in a Sentence
-   - Define a function `reverseWords(sentence)` that:
-     - Splits the sentence by spaces
-     - Reverses each word individually
-     - Joins them back
-   - Log the result.
-*/
-
-/*
-29. Check Substring Position
-   - Define a function `findWordPosition(sentence, word)` that uses .indexOf(word)
-     to find the starting index. If not found, return -1.
-   - Log the index or log "Not found" if it's -1.
-*/
-
-/*
-30. Switch: Simple Calculator
-   - Define a function `calculate(a, operator, b)` that uses switch to handle:
-     - "+" -> a + b
-     - "-" -> a - b
-     - "*" -> a * b
-     - "/" -> a / b
-     - Otherwise -> "Invalid operator"
-   - Log the result.
-*/

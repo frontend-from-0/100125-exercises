@@ -575,3 +575,204 @@ function updateTodoList(todoList, startIndex, deleteCount, ...newTasks) {
 const todoList = ["Study JS", "Eat breakfast", "Walk dog"];
 updateTodoList(todoList, 1, 1, "Go shopping", "Read a book", "Exercise");
 updateTodoList(todoList, 0, 2, "Go to the gym" ,"Cook dinner", "Watch a movie");
+
+/*
+27. Merge Two Arrays
+    - Define a function `mergeArrays(arr1, arr2)` that merges two arrays into one, without using `.concat()` or spread operator.
+    - Log the merged array.
+*/
+function mergeArrays(arr1, arr2) {
+  const merged = [];
+
+  for (const element of arr1) {
+    merged.push(element); // add element from arr1 to mergedArray
+  }
+
+  for(const element of arr2){
+    merged.push(element); // add element from arr2 to mergedArray
+  }
+
+  console.log('---EX27---', merged);
+  return merged;
+}
+
+mergeArrays([1, 2, 3], [4, 5, 6]);
+/*
+28. Check if All Elements Are Positive
+    - Define a function `areAllPositive(numbers)` that checks if all numbers in an array are positive.
+    - Log `true` if all elements are positive, otherwise `false`.
+*/
+function areAllPositive(numbers) {
+let allPositive = true;
+
+  for (const number of numbers){
+    if(number <= 0) { // check the number is less than or equal to 0
+      // if it is, set allPositive to false and break the loop
+      allPositive = false;
+      console.log('---EX28---', false);
+      return false;
+    } 
+    
+    }
+ console.log('---EX28---', allPositive);
+  return allPositive;
+  }
+ 
+areAllPositive([1, 2, 3, 4, 5]);
+areAllPositive([-1, 2, 3, 4, 5]);
+
+/*
+29. Find Common Elements Between Two Arrays
+    - Define a function `findCommonElements(arr1, arr2)` that finds and returns the common elements between two arrays.
+    - Log the common elements.
+*/
+function findCommonElements(arr1, arr2) {
+  const commonElements = [];
+
+  for(const element of arr1) {
+    if(arr2.includes(element)) { //check if the element is in arr2
+      commonElements.push(element); // if it is, add it to commonElements
+    }
+    }
+ console.log('---EX29---', commonElements);
+  return commonElements;
+  }
+  
+findCommonElements([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]);
+findCommonElements(["apple", "banana", "cherry", "coconut"], ["banana", "kiwi", "cherry", "mango"]);
+/*
+30. Find the average between the largest and the smallest number  in an Array
+    - Define a function that loops through the array to find and return the average between the largest and the smallest number.
+    - Log the number.
+*/
+function averageBetweenLargestAndSmallest (numbers) {
+  let maxNumber = numbers[0];
+  let minNumber = numbers[0];
+
+  for (const number of numbers){
+    if (number > maxNumber) {
+      maxNumber = number; // find the largest number
+
+    }else if (number < minNumber){
+      minNumber = number; // find the smallest number
+    } 
+ 
+  }
+  const average = (maxNumber + minNumber) / 2;
+  console.log('---EX30---', average);
+  return average;
+}
+
+averageBetweenLargestAndSmallest ([2, 4, 6, 8, 10]);
+
+/*
+31. Count the Number of Vowels in a String
+    - Define a function `countVowels(str)` that counts how many vowels (a, e, i, o, u) appear in the string.
+    - Log the count of vowels.
+*/
+function countVowels(str) {
+  let vowelCount = 0;
+  const vowels = "aeiouEAIUO"; // include uppercase vowels as well
+
+  for(const char of str.toLowerCase()) { // convert the string to Lowercase because we are checking for all vowels in it.
+   if(vowels.includes(char)) {
+    vowelCount++; // check if the character is a vowel and increase the count
+
+   } 
+
+  } 
+  console.log('---EX31---', vowelCount);
+  return vowelCount;
+}
+countVowels('Hello Everyone');
+
+/*
+32. Replace Falsy Values with Default
+    - Define a function `replaceFalsy(arr, defaultValue)` that replaces all falsy values in an array (false, 0, "", null, undefined, NaN) with `defaultValue`.
+    - Log the updated array.
+*/
+function replaceFalsy(arr, defaultValue) {
+  
+  for(let i = 0; i < arr.length; i++){
+  
+    if(!arr[i]) { // check if the value is falsy
+      arr[i]= defaultValue;
+      
+    }
+  }
+  console.log('---EX32---', arr);
+  return arr;
+}
+replaceFalsy([1, 2, "Hello.", 0, false, 0, "", null, undefined, NaN], "defaultValue");
+
+/*
+33. Create a Pyramid Pattern
+    - Define a function `createPyramid(n)` that prints a pyramid pattern of stars (`*`), with `n` rows.
+    - Example for `n = 4`:
+      ```
+        *
+       ***
+      *****
+     *******
+      ```
+*/
+function createPyramid(n) {
+  for (let i = 1; i <= n; i++) { // iterate through the rows
+    const spaces = " ".repeat(n - i); //spaces before the stars
+    const stars = "*".repeat(2 * i - 1); // stars in the pyramid
+    console.log(spaces + stars);  // print the spaces and stars together
+  }
+}
+createPyramid(4);
+createPyramid(5);
+ /*
+34. Convert String to Title Case
+    - Define a function `toTitleCase(str)` that converts a string to title case, i.e., capitalizing the first letter of each word.
+    - Log the title-cased string.
+*/
+function toTitleCase(str) {
+  const words = str.split(" ").map(word => 
+     word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(" ");
+      // capitalize the firs letter and convert the rest to lowerCase +  join the word back together with spaces
+  
+  console.log('---EX34---', words);
+  return words;
+}
+toTitleCase("hello friends, how are you?");
+/*
+35. Create a Range of Numbers
+    - Define a function `createRange(start, end)` that generates an array of numbers from `start` to `end` (inclusive).
+    - Log the generated range.
+*/
+function createRange(start, end) {
+  const range = [];
+  for (let i= start; i <= end; i++){
+    range.push(i); // add each number to the range array
+  }
+  console.log('---EX35---', range);
+  return range;
+}
+createRange(1, 10);
+createRange(4, 9);
+/*
+36. Sum Odd Numbers in a Range
+    - Define a function `sumOddNumbers(start, end)` that sums only the odd numbers in the range from `start` to `end`.
+    - Log the total sum.
+*/
+function sumOddNumbers(start, end) {
+  const oddNumbers = [];
+  let sum = 0;
+
+  for (let i= start; i <= end; i++){
+    if(i % 2 === 1) { // check if the number is odd
+      oddNumbers.push(i); // add the odd number to the array
+      sum += i; // add the odd number to the sum
+      
+    }
+
+  }
+  console.log('---EX36---', sum);
+  return sum;
+}
+sumOddNumbers(1, 10);
+sumOddNumbers(2, 7);

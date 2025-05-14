@@ -138,8 +138,8 @@ Function: removeContact(name)
   let indexToRemove = -1; // we assume the contact is not found so we set it to -1 to indicate that
   let i = 0; // we need to set the index to 0 to start from the first element
 
-   for (const contact of contacts) {
-    if (name === contact.name) {
+   for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].name === name) {
       indexToRemove = i; // we set the index to the current index
       break; // we return to break the loop- I do not use return here because I want to continue the loop below.
     

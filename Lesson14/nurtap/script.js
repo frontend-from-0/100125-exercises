@@ -20,14 +20,14 @@ normalizeEmail("USER@Example.COM");
 
 function checkFileExtension(filename) {
    if (filename.endsWith(".pdf")) { 
-      console.log(filename + " This is a PDF file.")   
+      console.log(filename + " This is a PDF file.");   
    }
    else {
-      console.log(filename + " Not a PDF file.")
+      console.log(filename + " Not a PDF file.");
    }
 }
-checkFileExtension("osman.pdf") 
-checkFileExtension("pdf.sedef") 
+checkFileExtension("osman.pdf"); 
+checkFileExtension("pdf.sedef"); 
 /*
 7. Compare Numbers (if-else)
    - Define a function `compareNumbers(a, b)` that:
@@ -38,19 +38,19 @@ checkFileExtension("pdf.sedef")
 
 function compareNumbers(a, b) {
    if (a > b) {
-      console.log("a is bigger")
+      console.log("a is bigger");
    }
    else if (b > a) {
-      console.log("b is bigger")
+      console.log("b is bigger");
    }
    else {
-      console.log("Numbers are equal")
+      console.log("Numbers are equal");
    }
 }
 
-compareNumbers(10, 8)
-compareNumbers(8, 10)
-compareNumbers(10, 10)
+compareNumbers(10, 8);
+compareNumbers(8, 10);
+compareNumbers(10, 10);
 
 /*
 8. Palindrome Check
@@ -62,14 +62,14 @@ compareNumbers(10, 10)
 
 function isPalindrome(str) {
    if (str == str.split('').reverse().join('')) {
-      console.log(str + " is a palindrome")
+      console.log(str + " is a palindrome");
    }
    else {
-      console.log(str + "is not a palindrome")
+      console.log(str + " is not a palindrome");
    }
 }
-isPalindrome("nurtap")
-isPalindrome("dad")
+isPalindrome("nurtap");
+isPalindrome("dad");
 
 /*
 9. String Truncation
@@ -81,14 +81,14 @@ isPalindrome("dad")
 function truncateString(text, maxLength) {
    const truncatedString = text.slice(0, maxLength)
    if (text == truncatedString) {
-      console.log(truncatedString)
+      console.log(truncatedString);
    }
    else {
-      console.log(truncatedString + "...") 
+      console.log(truncatedString + "...");
    }
 }
-truncateString("nurtap" , 6)
-truncateString("nurtap" , 3)
+truncateString("nurtap" , 6);
+truncateString("nurtap" , 3);
 
 /*
 10. Check Even or Odd (if-else)
@@ -99,14 +99,14 @@ truncateString("nurtap" , 3)
 
 function evenOrOdd(number) {
   if (number % 2 == 0) {
-   console.log("Even")
+   console.log("Even");
   }
   else {
-   console.log("Odd")
+   console.log("Odd");
   }
 }
-evenOrOdd(13) 
-evenOrOdd(18) 
+evenOrOdd(13); 
+evenOrOdd(18); 
 
 /*
 11. URL Protocol Checker
@@ -117,14 +117,14 @@ evenOrOdd(18)
 
 function checkProtocol(url) {
    if (url.startsWith("https")) {
-      console.log("Secure connection")
+      console.log("Secure connection");
    }
    else {
-      console.log("Unsecure connection")
+      console.log("Unsecure connection");
    }
 }
-checkProtocol("https://google.com")
-checkProtocol("http://google.com")
+checkProtocol("https://google.com");
+checkProtocol("http://google.com");
 
 /*
 12. Switch: Day of the Week
@@ -139,32 +139,32 @@ checkProtocol("http://google.com")
 function getDayOfWeek(num) {
    switch(num) {
       case 1:
-         console.log("Monday")
+         console.log("Monday");
          break
       case 2:
-         console.log("Tuesday")
+         console.log("Tuesday");
          break
       case 3:
-         console.log("Wednesday")
+         console.log("Wednesday");
          break
       case 4:
-         console.log("Thursday")
+         console.log("Thursday");
          break
       case 5:
-         console.log("Friday")
+         console.log("Friday");
          break
       case 6:
-         console.log("Saturday")
+         console.log("Saturday");
          break
       case 7:
-         console.log("Sunday")
+         console.log("Sunday");
          break
       default:
-         console.log("Invalid day")
+         console.log("Invalid day");
    }
 }
-getDayOfWeek(3)
-getDayOfWeek(10)
+getDayOfWeek(3);
+getDayOfWeek(10);
 
 /*
 13. Repeat a String
@@ -174,10 +174,10 @@ getDayOfWeek(10)
 */
 
 function repeatWord(word, times) {
-   console.log(word.repeat(times))
+   console.log(word.repeat(times));
 }
 
-repeatWord("Nurtap", 7)
+repeatWord("Nurtap", 7);
 
 /*
 14. Replace Substring
@@ -187,9 +187,9 @@ repeatWord("Nurtap", 7)
 */
 
 function censorWord(sentence, target) {
-   console.log(sentence.replaceAll(target, "****"))
+   console.log(sentence.replaceAll(target, "****"));
 }
-censorWord("Fuck the system, Fuck all" , "Fuck")
+censorWord("Fuck the system, Fuck all" , "Fuck");
 
 /*
 15. Check First Character (if-else)
@@ -200,14 +200,14 @@ censorWord("Fuck the system, Fuck all" , "Fuck")
 
 function startsWithA(str) {
    if (str[0] == "A") {
-      console.log("Starts with A")
+      console.log("Starts with A");
    }
    else {
-      console.log("Does not start with A")
+      console.log("Does not start with A");
    }
 }
-startsWithA("Adem")
-startsWithA("Guney")
+startsWithA("Adem");
+startsWithA("Guney");
 
 /*
 16. Slice Last N Characters
@@ -217,9 +217,9 @@ startsWithA("Guney")
 */
 
 function sliceLastN(text, n) {
-  console.log(text.slice(0, text.length - n))
+  console.log(text.slice( - n));
 }
-sliceLastN("nurtap", 2)
+sliceLastN("nurtap", 2);
 
 /*
 17. Switch: Grade Checker
@@ -234,26 +234,26 @@ sliceLastN("nurtap", 2)
 
 function gradeChecker(score) {
    if (score >= 90) {
-      console.log("A")
+      console.log("A");
    }
    else if (score >= 80 && score <= 89) {
-      console.log("B")
+      console.log("B");
    }
    else if (score >= 70 && score <= 79) {
-      console.log("C")
+      console.log("C");
    }
    else if (score >= 60 && score <= 69) {
-      console.log("D")
+      console.log("D");
    }
    else if (score < 60) {
-      console.log("F")
+      console.log("F");
    }
 }
-gradeChecker(95)
-gradeChecker(85)
-gradeChecker(73)
-gradeChecker(62)
-gradeChecker(51)
+gradeChecker(95);
+gradeChecker(85);
+gradeChecker(73);
+gradeChecker(62);
+gradeChecker(51);
 
 /*
 18. Character Replacement
@@ -263,9 +263,9 @@ gradeChecker(51)
 */
 
 function replaceCharacter(str, oldChar, newChar) {
-   console.log(str.replaceAll(oldChar, newChar))
+   console.log(str.replaceAll(oldChar, newChar));
 }
-replaceCharacter("barbunya", "b", "z")
+replaceCharacter("barbunya", "b", "z");
 
 /*
 19. Title Case a Sentence
@@ -291,9 +291,9 @@ function titleCase(sentence) {
          }
    }
 );
-   console.log(newSentence)
+   console.log(newSentence);
 }
-titleCase("this is my sentence")
+titleCase("this is my sentence");
  
 
 /*
@@ -308,24 +308,24 @@ titleCase("this is my sentence")
 function trafficLight(color) {
    switch(color) {
       case  "red":
-         console.log( "Stop")
+         console.log( "Stop");
          break
       case "yellow":
-         console.log("Caution")
+         console.log("Caution");
          break
       case "green":
-         console.log("Go")
+         console.log("Go");
          break
        default:
-         console.log("Invalid color")  
+         console.log("Invalid color");  
 
 }
 }
 
-trafficLight("red")
-trafficLight("yellow")
-trafficLight("green")
-trafficLight("purple")
+trafficLight("red");
+trafficLight("yellow");
+trafficLight("green");
+trafficLight("purple");
 
 /*
 21. Check String Length (if-else)
@@ -335,15 +335,15 @@ trafficLight("purple")
 */
 function isLongString(str) {
    if (str.length > 10) {
-      console.log("Long string")
+      console.log("Long string");
    }
    else {
-      console.log("Short string")
+      console.log("Short string");
    }
 }
 
-isLongString("This is a long string")
-isLongString("short str")
+isLongString("This is a long string");
+isLongString("short str");
 
 /*
 22. Convert to Lowercase Then Check
@@ -356,14 +356,14 @@ isLongString("short str")
 function isSpam(text) {
    
    if (text.toLowerCase().includes("spam")){
-      console.log("This text is spam.")
+      console.log("This text is spam.");
    }
    else {
-      console.log("This text is not spam.")
+      console.log("This text is not spam.");
    }
 }
-isSpam("This is SPAM.")
-isSpam("This is not.")
+isSpam("This is SPAM.");
+isSpam("This is not.");
 
 /*
 23. Extract Initials
@@ -378,11 +378,11 @@ function getInitials(fullName){
    name.forEach((n) => {
    initials += n[0].charAt(0).toUpperCase()+ "."
 })
-   console.log(initials)
+   console.log(initials);
 
    //console.log(name[0].charAt(0).toUpperCase()+ "." + name[1].charAt(0).toUpperCase()+ ".")
 }
-getInitials("john osman doe")
+getInitials("john osman doe");
 
 /*
 24. Switch: Month to Season
@@ -399,32 +399,32 @@ function getSeason(monthNum) {
       case  12:
       case  1:
       case  2:
-         console.log("Winter")
+         console.log("Winter");
          break;
       case  3:
       case  4:
       case  5:
-         console.log("Spring")
+         console.log("Spring");
          break;
       case  6:
       case  7:
       case  8:
-         console.log("Summer")
+         console.log("Summer");
          break;
       case  9:
       case  10:
       case  11:
-         console.log("Autumn")
+         console.log("Autumn");
          break;
       default:
-         console.log("Invalid month") 
+         console.log("Invalid month"); 
 }
 }
-getSeason(1)
-getSeason(4)
-getSeason(7)
-getSeason(10)
-getSeason(13)
+getSeason(1);
+getSeason(4);
+getSeason(7);
+getSeason(10);
+getSeason(13);
 
 /*
 25. Check If String Contains Number
@@ -441,14 +441,14 @@ function containsNumber(str) {
     }
     }
     if (isMatch) {
-      console.log("Contains number")
+      console.log("Contains number");
     }
     else {
-      console.log("No number found")
+      console.log("No number found");
     }
 }
-containsNumber("str15")
-containsNumber("str")
+containsNumber("str15");
+containsNumber("str");
 
 /*
 26. Pad a String
@@ -459,11 +459,14 @@ containsNumber("str")
 
 function padString(str, maxLength) {
    if (str.length < maxLength) {
-      const paddedStr = str.padEnd(maxLength, "*")
-      console.log(paddedStr)
+      const paddedStr = str.padEnd(maxLength, "*");
+      console.log(paddedStr);
+   }
+   else {
+   console.log(str); // still show the original
    }
 }
-padString("Nurtap", 10)
+padString("Nurtap", 10);
 
 /*
 27. If-Else: Voting Eligibility
@@ -474,15 +477,15 @@ padString("Nurtap", 10)
 
 function canVote(age) {
    if (age >= 18) {
-      console.log("Can vote")
+      console.log("Can vote");
    }
    else {
-      console.log("Too young to vote")
+      console.log("Too young to vote");
    }
 }
 
-canVote(3)
-canVote(45)
+canVote(3);
+canVote(45);
 
 /*
 28. Reverse Words in a Sentence
@@ -497,10 +500,10 @@ function reverseWords(sentence) {
    let reversedSentence = sentence.split(" ").map((word) => { 
       return word.split('').reverse().join('')
    }).join(" ")
-   console.log(reversedSentence)
+   console.log(reversedSentence);
 }
 
-reverseWords("This is my sentence")
+reverseWords("This is my sentence");
 
 /*
 29. Check Substring Position
@@ -511,14 +514,14 @@ reverseWords("This is my sentence")
 
 function findWordPosition(sentence, word) {
   if (sentence.indexOf(word) != -1) {
-   console.log(sentence.indexOf(word))
+   console.log(sentence.indexOf(word));
   }
   else {
-   console.log("Not found")
+   console.log("Not found");
   }
 }
-findWordPosition("This is my sentence", "my")
-findWordPosition("This is my sentence", "at")
+findWordPosition("This is my sentence", "my");
+findWordPosition("This is my sentence", "at");
 
 /*
 30. Switch: Simple Calculator
@@ -534,24 +537,24 @@ findWordPosition("This is my sentence", "at")
 function calculate(a, operator, b) {
    switch (operator) {
       case "+": 
-         console.log(a + b) 
+         console.log(a + b); 
          break
       case "-": 
-         console.log(a - b) 
+         console.log(a - b); 
          break
       case "*": 
-         console.log(a * b) 
+         console.log(a * b); 
          break
       case "/": 
-         console.log(a / b) 
+         console.log(a / b); 
          break
       default:
-         console.log("Invalid operator")
+         console.log("Invalid operator");
    }
 }
 
-calculate(3, "+", 5)
-calculate(3, "-", 5)
-calculate(3, "*", 5)
-calculate(3, "/", 5)
-calculate(3, "?", 5)
+calculate(3, "+", 5);
+calculate(3, "-", 5);
+calculate(3, "*", 5);
+calculate(3, "/", 5);
+calculate(3, "?", 5);

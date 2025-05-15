@@ -33,6 +33,18 @@ const contacts = [
 
 console.log(contacts[0].name);
 
+
+// Extra Step: findContact function
+
+function findContact(name) {
+  for (const contact of contacts) {
+    if (contact.name === name) {
+      return contact;
+    }
+  }
+  return null;
+}
+
 /*
 -----------------------------------------------------------
   STEP 2: Display All Contacts
@@ -65,19 +77,13 @@ Function: addContact(name, phone, email)
 - Logs "Contact added successfully." if everything is good.
 */
 function addContact(name, phone, email) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      console.log(`Warning: a contact named ${name} already exist`);
-      return;
-    }
+  if (findContact(name)) {
+    console.log(`Warning: a contact named ${name} already exists.`);
+    return;
   }
-  console.log('Contact is not found, adding the contact!');
   contacts.push({ name, phone, email });
   console.log('Contact added successfully.');
-  return contacts;
 }
-
-addContact('name', 'saasdas', 'asdsadsa');
 
 /*
 -----------------------------------------------------------
@@ -89,16 +95,12 @@ Function: viewContact(name)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function viewContact(name) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      console.log(
-        `Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`,
-      );
-      return;
-    }
+  const contact = findContact(name);
+  if (contact) {
+    console.log(`Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`);
+  } else {
+    console.log(`No contact found with the name: ${name}`);
   }
-
-  console.log(`No contact found with the name: ${name}`);
 }
 
 /*
@@ -111,15 +113,14 @@ Function: updateContact(name, newPhone, newEmail)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function updateContact(name, newPhone, newEmail) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      contact.phone = newPhone;
-      contact.email = newEmail;
-      console.log("Contact updated successfully.");
-      return; 
-    }
+  const contact = findContact(name);
+  if (contact) {
+    contact.phone = newPhone;
+    contact.email = newEmail;
+    console.log('Contact updated successfully.');
+  } else {
+    console.log(`No contact found with the name: ${name}`);
   }
-  console.log(`No contact found with the name: ${name}`);
 }
 /*
 -----------------------------------------------------------
@@ -132,6 +133,19 @@ Function: removeContact(name)
 - Logs "Contact removed successfully." if found.
 - Otherwise, logs: "No contact found with the name: <name>"
 */
+function removeContact(name) {
+  const contact = findContact(name);
+  if (contact) {
+    const index = contacts.indexOf(contact);
+    contacts.splice(index, 1);
+    console.log('Contact removed successfully.');
+  } else {
+    console.log(`No contact found with the name: ${name}`);
+  }
+}
+
+
+/*
 function removeContact(name) {
   for (let i = 0; i < contacts.length; i++) {
     if (contacts[i].name === name) {
@@ -146,6 +160,7 @@ function removeContact(name) {
 
 removeContact('Alice');
 removeContact('Kemal');
+*/
 
 /* I tried this function. https://codepen.io/chn-kl-/pen/azzXgjM */
 

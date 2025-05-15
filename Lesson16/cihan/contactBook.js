@@ -133,6 +133,24 @@ Function: removeContact(name)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function removeContact(name) {
+  for (let i = 0; i < contacts.length; i++) {
+    if (contacts[i].name === name) {
+      contacts.splice(i, 1);
+      console.log("Contact removed successfully.");
+      return;
+    }
+  }
+
+  console.log(`No contact found with the name: ${name}`);
+}
+
+removeContact('Alice');
+removeContact('Kemal');
+
+/* I tried this function. https://codepen.io/chn-kl-/pen/azzXgjM */
+
+/*
+function removeContact(name) {
   const index = contacts.findIndex((contact) => contact.name === name);
   if (index !== -1) {
     contacts.splice(index, 1);
@@ -141,6 +159,7 @@ function removeContact(name) {
     console.log(`No contact found with the name: ${name}`);
   }
 }
+  */
 
 /*using loop
 

@@ -100,8 +100,8 @@ const colors = ["red", "green", "blue"];
 
 function reverseArray(arr) {
   let updatedArray = [];
-  for (const element of arr) {
-    updatedArray.push(element + "!");
+  for (let i = arr.length - 1; i >= 0; i--){
+    updatedArray.push(i + "!");
   
   }
   console.log('-----EX. 5-------');
@@ -257,7 +257,7 @@ removeDuplicates([12, 12, 4, 8, 5, 5, 10, 10]);
 function factorial(n){
   console.log('--EX. 13--');
   let result = 1;
-  for (let i = 1; i <= 5 ; i++ ){
+  for (let i = 1; i <= n ; i++ ){
     result *= i
   }
   console.log(result);
@@ -329,10 +329,10 @@ logElementsWithIndex(["spring", "autumun", "winter", "summer"]);
 */
 
 function findMin(numbers){
-  let smallestNumber = [];
+  let smallestNumber = numbers[0];
   for(const number of numbers){
-    if(number < numbers[number]  ){
-      smallestNumber.push(number);
+    if(number < smallestNumber  ){
+      smallestNumber = number;
     }
   } 
     console.log('--EX. 17--');
@@ -484,18 +484,14 @@ findWordsWithLetter(['stone', 'rock', 'woodstock', 'stockExchange', 'rare', 'nea
 function pushPopExample(arr, itemToPush){
   let poppedElement = [];
    console.log('--EX. 24--');
-  for (const item of itemToPush){
-    arr.push(item);
+    arr.push(itemToPush);
     console.log(arr);
-  }
-  for(const element of arr){
-    poppedElement = arr.pop(element);
+    poppedElement = arr.pop(arr[-1]);
     console.log(poppedElement);
-  }
   console.log(arr);
 }
 
-pushPopExample(["hey"], ["you"]);
+pushPopExample(["hey"], "you");
 
 /*
 25. Push and Shift Operations
@@ -509,20 +505,14 @@ pushPopExample(["hey"], ["you"]);
 function manageQueue(queue, newPerson){
   console.log('--EX. 25--');
   let removedPerson = [];
-  for (const person of newPerson){
-      queue.push(person);
+      queue.push(newPerson);
       console.log(queue);
-  }
-  for (const firstPerson of queue){
-    if(firstPerson === queue[0]){
       removedPerson = queue.shift();
       console.log(removedPerson);
-    }
-  }
   console.log(queue);
 }
 
-manageQueue(['Cihan', 'Batıkan', 'Seda', 'Ozlem', 'Emre'], ['Uygar']);
+manageQueue(['Cihan', 'Batıkan', 'Seda', 'Ozlem', 'Emre'], 'Uygar');
 
 /*
 26. To-Do List Application 

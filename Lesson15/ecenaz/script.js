@@ -116,7 +116,7 @@ const colors = ["red", "green", "blue"];
 
 function reverseArray(arr) {
   let updatedArray = [];
-  for (const element of arr) {
+  for (let i= arr.length -1; i>= 0; i--) { 
     updatedArray.push(element + "!");
   
   }

@@ -5,7 +5,6 @@
    - Example: "USER@Example.COM" -> "user@example.com"
 */
 
-
 /*
 6. File Extension Check
    - Define a function `checkFileExtension(filename)` that checks if the filename

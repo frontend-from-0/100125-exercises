@@ -33,7 +33,26 @@ const contacts = [
 
 console.log(contacts[0].name);
 
+// The helper function to find a contact by name
+// I put this function above because I am going to use it in the followinf functions.
+
+function findContact(name) { 
+  for (const contact of contacts) { 
+    if (contact.name.toLowerCase() === name.toLowerCase()) { 
+      return contact;
+    }
+  }
+  return null; // I use 'null' to indicate that the contact is not found. I did not use 'undefined' because is usually returned automatically  when no value has been assigned.
+}
+
+
+function findContactIndex(name) { // This helper function is used to find the index of the contact. I will use it in the removeContact function. Or any other function that needs to find index.
+  return contacts.findIndex(contact => contact.name === name);
+}
+
 /*
+
+
 -----------------------------------------------------------
   STEP 2: Display All Contacts
 -----------------------------------------------------------
@@ -45,7 +64,12 @@ Example output:
   Name: Alice, Phone: 123-456-7890, Email: alice@example.com
   -----
 */
-function displayAllContacts() {
+function displayAllContacts() { // I do not to use 'findContact' function here because I want to display all the contacts. 
+if (contacts.length === 0) { // check if the contacts array is empty
+    console.log("No contacts to display.");
+    return;
+  }
+
   for (const contact of contacts) {
     console.log(
       `Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`,
@@ -65,18 +89,21 @@ Function: addContact(name, phone, email)
 - Logs "Contact added successfully." if everything is good.
 */
 function addContact(name, phone, email) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      console.log(`Warning: a contact named ${name} already exist`);
+
+  const newContact = findContact(name); // I use the helper function to check if the contact already exists.
+
+
+ if (newContact) { // I use the helper function. 
+      console.warn(`Warning: a contact named ${name} already exist`);
       return;
-    }
-  }
-  console.log('Contact is not found, adding the contact!');
+      
+    } 
+     // If the contact does not exist I create a new contact object and push it to the contacts array. 
   contacts.push({ name, phone, email });
   console.log('Contact added successfully.');
-  return contacts;
+  return;
 }
-
+ 
 addContact('name', 'saasdas', 'asdsadsa');
 
 /*
@@ -89,14 +116,16 @@ Function: viewContact(name)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function viewContact(name) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
+  
+  const contact = findContact(name); // I use the helper function.
+
+    if (contact) {
       console.log(
         `Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`,
       );
       return;
     }
-  }
+  
 
   console.log(`No contact found with the name: ${name}`);
 }
@@ -111,14 +140,16 @@ Function: updateContact(name, newPhone, newEmail)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function updateContact(name, newPhone, newEmail) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
+  const contact = findContact(name);
+
+    if (contact) {
+    
       contact.phone = newPhone;
       contact.email = newEmail;
       console.log("Contact updated successfully.");
       return; 
     }
-  }
+  
   console.log(`No contact found with the name: ${name}`);
 }
 /*
@@ -134,48 +165,23 @@ Function: removeContact(name)
 */
 
 // with for loop
- function removeContact(name) {
-  let indexToRemove = -1; // we assume the contact is not found so we set it to -1 to indicate that
-  let i = 0; // we need to set the index to 0 to start from the first element
+ function removeContact(name) {// I need to use another helper function here. because I need to find index of cotact to remove it.
 
-   for (let i = 0; i < contacts.length; i++) {
-    if (contacts[i].name === name) {
-      indexToRemove = i; // we set the index to the current index
-      break; // we return to break the loop- I do not use return here because I want to continue the loop below.
-    
-    }
-    i++; // we increment the index
-  } 
+ 
+  const indexToRemove = findContactIndex; // findIndex, helper function
 
-  if (indexToRemove !== -1) { // if the index is not -1, it means we found the contact
-    contacts.splice(indexToRemove, 1); // we remove the contact from the array by using the splice method. 
-    console.log("Contact removed successfully.");
-    
-  }else {
-     console.log(`No contact found with the name: ${name} `);
+   if (indexToRemove !== -1) { // if the index is not -1, it means we found the contact.
+      contacts.splice(indexToRemove, 1); // we remove the contact from the array by using the splice method.
+      console.log("Contact removed successfully.");
+    } else {
+    console.warn(`No contact found with the name: ${name}`);
+
   }
- 
-} 
+  return;
+    
+  }
 
-// with findIndex() method
-
-
-/* function removeContact(name) {
-
- const indexToRemove = contacts.findIndex(contact => contact.name === name);
-
-  if (indexToRemove !== -1) {
-  contacts.splice(indexToRemove, 1);
-    console.log("Contact removed successfully.");
-    }else{
-    console.log(`No contact found with the name: ${name}`);
-}
-    } */
   
-
- 
-
-
 /*
 -----------------------------------------------------------
   STEP 7: Testing Our Functions
@@ -189,10 +195,24 @@ displayAllContacts();
 
 console.log('\nAdding a new contact: Charlie');
 addContact('Charlie', '777-777-7777', 'charlie@example.com');
+console.log('Initial contact list:');
 displayAllContacts();
+
+console.log('\nAdding a new contact: Ece');
+addContact('Ece', '555-213-789', 'ece.naz@example.com');
+console.log('Initial contact list:');
+displayAllContacts();
+addContact('Ece', '555-213-789', 'ece.naz@example.com');
+
+
 
 console.log("\nViewing Charlie's contact:");
 viewContact('Charlie');
+
+console.log("\nViewing Ece's contact:");
+viewContact('Ece');
+
+
 
 console.log("\nViewing Bob's contact:");
 viewContact('Bob');
@@ -200,8 +220,15 @@ viewContact('Bob');
 console.log("\nUpdating Bob's contact:");
 updateContact('Bob', '999-999-9999', 'bob@updated.com');
 
+
+
+
+
 console.log("\nUpdating Charlie's contact:");
 updateContact('Charlie', '999-999-1111', 'charlie@updated.com');
+
+console.log("\nUpdating Ece's contact:");
+updateContact('Ece', '123-456-987', 'ece@updated.com');
 
 
 console.log('\nRemoving Alice:');
@@ -223,18 +250,24 @@ displayAllContacts();
 // 1. Partial Name Search: 
 
 function checkName(name) {
-  for (const contact of contacts) {
-    if(contact.name.includes(name)){
-      console.log(`Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`);
-    }else {
-      console.log(`No contact found with the name: ${name}`);
-    }
-return;
-  }
   
+  const lowerName = name.toLowerCase();
+
+  for (const contact of contacts) { // We modify the helper function to find contact by partial name.
+   
+    if (contact.name.toLowerCase().includes(lowerName)) { //.toLowerCase() method is converted to lower case to make the search case insensitive.
+      console.log("Contact found:", contact);
+      return ; 
+    }
+  }
+  return null; 
 }
-checkName('Alice');
-checkName('John');
+  
+
+console.log("\nPartial Name Search:");
+checkName('Jo');
+console.log("\nPartial Name Search:");
+checkName('ec');
 
 // 2. Sort Contacts:
 
@@ -244,24 +277,26 @@ function sortContacts(name){
   console.log(contacts);
  
 }
-
+console.log("\Sort Contact Search:");
 sortContacts('name'); 
 
 // 3. Search by multiple fields:
 
 function searchByField(field) {
 
-for (const contact of contacts) {
+for(const contact of contacts) // I do not need to use helper function because I am going to search by multiple fields other than name.
   if (contact.phone === field || contact.email === field) {
     console.log('Contact found:', contact);
     return contact;
   }
-    
-}
-console.log('No contact found with the given field:', field);
+    console.log('No contact found with the given field:');
 return;
 }
 
+
+console.log("\Search by multiple fields:");
 searchByField('john@example.com');
+console.log("\Search by multiple fields:");
 searchByField('999-999-1111');
+console.log("\Search by multiple fields:");
 searchByField('555-444-2222');

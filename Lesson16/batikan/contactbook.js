@@ -28,7 +28,8 @@ in Node.js or in your browser's console to see the output.
 
 const contacts = [
   { name: 'Alice', phone: '123-456-7890', email: 'alice@example.com' },
-  { name: 'John', phone: '123-456-7890', email: 'alice@example.com' },
+  { name: 'John', phone: '123-456-7890', email: 'john@example.com' },
+  { name: 'Janna', phone: '333-323-3222', email: 'alice@yahoo.com'},
 ];
 
 console.log(contacts[0].name);
@@ -46,13 +47,31 @@ Example output:
   -----
 */
 function displayAllContacts() {
-  for (const contact of contacts) {
+  for (let i = 0; i < contacts.length; i++) {
     console.log(
-      `Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`,
+      `Name: ${contacts[i].name}, Phone: ${contacts[i].phone}, Email: ${contacts[i].email}`,
     );
     console.log('-----');
   }
 }
+
+console.log('Initial contact list:');
+displayAllContacts();
+
+
+/* contactFinder helper function */
+
+  const contactFinder = function findContact (name){
+    for (let i = 0; i < contacts.length; i++){
+      if (name && contacts[i].name.includes(name)
+          ) {    
+      return contacts[i];
+    }
+  }
+  return null;
+}
+
+
 
 /*
 -----------------------------------------------------------
@@ -65,19 +84,24 @@ Function: addContact(name, phone, email)
 - Logs "Contact added successfully." if everything is good.
 */
 function addContact(name, phone, email) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      console.log(`Warning: a contact named ${name} already exist`);
-      return;
-    }
+  const foundContact = contactFinder(name);
+  if (foundContact){
+    console.log('Contact already exists. Not adding the new contact');
+    return;
   }
-  console.log('Contact is not found, adding the contact!');
+  console.log('Contacts is not found, adding the contact!');
   contacts.push({ name, phone, email });
   console.log('Contact added successfully.');
   return contacts;
+  
 }
 
-addContact('name', 'saasdas', 'asdsadsa');
+addContact('John', '123-456-7891', 'john@eyample.com');
+addContact('Bob', '123-456-7895', 'bob@example.com');
+addContact('Alice', '143-456-7890', 'altce@eymple.com');
+addContact('Charlie', '777-777-7777', 'charlie@example.com');
+displayAllContacts();
+
 
 /*
 -----------------------------------------------------------
@@ -88,18 +112,28 @@ Function: viewContact(name)
 - Logs the contact info if found (Name: Alice, Phone: 123-456-7890, Email: alice@example.com)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
-function viewContact(name) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
+
+
+
+function viewContact(name) { 
+  const foundContact = contactFinder(name);
+    if (foundContact) {
       console.log(
-        `Name: ${contact.name}, Phone: ${contact.phone}, Email: ${contact.email}`,
+        `Name: ${foundContact.name}, Phone: ${foundContact.phone}, Email: ${foundContact.email}`,
       );
       return;
     }
+    console.log(`No contact found with the name: ${name}`);
   }
 
-  console.log(`No contact found with the name: ${name}`);
-}
+
+console.log("\nViewing Charlie's contact:");
+viewContact('Charlie');
+
+console.log("\nViewing Bob's contact:");
+viewContact('Bob');
+
+viewContact('Mark');
 
 /*
 -----------------------------------------------------------
@@ -111,16 +145,25 @@ Function: updateContact(name, newPhone, newEmail)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 function updateContact(name, newPhone, newEmail) {
-  for (const contact of contacts) {
-    if (name === contact.name) {
-      contact.phone = newPhone;
-      contact.email = newEmail;
+  const foundContact = contactFinder(name);
+    if (foundContact) {
+      foundContact.phone = newPhone;
+      foundContact.email = newEmail;
       console.log("Contact updated successfully.");
       return; 
     }
-  }
   console.log(`No contact found with the name: ${name}`);
-}
+  }
+
+console.log("\nUpdating Bob's contact:");
+updateContact('Bob', '999-999-9999', 'bob@updated.com');
+
+console.log("\nUpdating Charlie's contact:");
+updateContact('Charlie', '999-999-1111', 'charlie@updated.com');
+
+updateContact("Maria");
+
+displayAllContacts();
 /*
 -----------------------------------------------------------
   STEP 6: Remove a Contact
@@ -133,39 +176,58 @@ Function: removeContact(name)
 - Otherwise, logs: "No contact found with the name: <name>"
 */
 
-/*
------------------------------------------------------------
-  STEP 7: Testing Our Functions
------------------------------------------------------------
-Below are some sample function calls to demonstrate the 
-Contact Book in action.
-*/
-
-console.log('Initial contact list:');
-displayAllContacts();
-
-console.log('\nAdding a new contact: Charlie');
-addContact('Charlie', '777-777-7777', 'charlie@example.com');
-displayAllContacts();
-
-console.log("\nViewing Charlie's contact:");
-viewContact('Charlie');
-
-console.log("\nViewing Bob's contact:");
-viewContact('Bob');
-
-console.log("\nUpdating Bob's contact:");
-updateContact('Bob', '999-999-9999', 'bob@updated.com');
-
-console.log("\nUpdating Charlie's contact:");
-updateContact('Charlie', '999-999-1111', 'charlie@updated.com');
-
+function removeContact(name){
+  const foundContact = contactFinder(name);
+    if (foundContact) {
+      const index = contacts.indexOf(foundContact);
+      console.log('Found contact:', foundContact);
+      contacts.splice(index, 1);
+      console.log('Contact removed successfully')
+    } else {
+    console.log(`No contact found with the name ${name}`)
+    }
+}
 
 console.log('\nRemoving Alice:');
 removeContact('Alice');
+console.log('\nRemoving Charlie:');
+removeContact('Charlie');
+removeContact('George');
+
 displayAllContacts();
 
+/* Alphabetically sorting */
+
+function sortAlphabetically(obj) {
+  return obj.sort((a, b) => a.name.localeCompare(b.name));
+}
+  
+  const sortedContacts = sortAlphabetically(contacts);
+  console.log(sortedContacts)
+  
+
+/* Contact finder by email and phone */
+
+  function findContact (phone, email){
+      for (let i = 0; i < contacts.length; i++){
+      if (phone && contacts[i].phone.includes(phone) ||
+          email && contacts[i].email.includes(email)
+          ){
+          return console.log('Contact is found:', contacts[i]);
+          }
+  }
+  console.log(`Contact is not found: ${phone} or ${email}`)
+  return null;
+}
+
+
+findContact('999-999-9999', '');
+findContact('', 'alice@yahoo.com');
+findContact('John', 'john@example.com');
+findContact('222-425-789', 'charlie@example.com');
+
 /*
+
 -----------------------------------------------------------
   OPTIONAL ENHANCEMENTS:
 -----------------------------------------------------------

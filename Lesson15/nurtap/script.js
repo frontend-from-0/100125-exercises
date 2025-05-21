@@ -255,7 +255,7 @@ countOccurrences(["nurtap", "serhat", "ece", "nurtap", "sevtap"], "nurtap");
 function removeFalsyValues(arr) {
   let newArr = [];
   for (let elem of arr) {
-    if (!elem) {
+    if (elem) {
       newArr.push(elem);
     }
   }

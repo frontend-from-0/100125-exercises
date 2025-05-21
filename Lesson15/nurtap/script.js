@@ -31,7 +31,6 @@ function reverseArray(arr) {
   console.log(reversedArr);
 }
 reverseArray(["a", "b", "c", "d"]);
-
 /*
 6. Filter Out Negative Numbers
    - Define a function `filterNegative(numbers)` that loops through
@@ -49,7 +48,6 @@ function filterNegative(numbers) {
   console.log(positiveNumbers);
 }
 filterNegative([0, 1, 2, -3, 4, -5]);
-
 /*
 7. Double the Values (For-of Loop)
    - Define a function `doubleValues(numbers)` that uses a for-of loop
@@ -96,6 +94,7 @@ function sumObjectValues(obj) {
   console.log(sum);
 }
 sumObjectValues({ a: 10, b: 20, c: 5 });
+
 /*
 10. Print Keys of an Object (For-in)
     - Define a function `printObjectKeys(obj)` that uses a for-in loop
@@ -195,7 +194,6 @@ function filterLongWords(words, minLength) {
 }
 
 filterLongWords(["nurtap", "jan", "ramazan"], 6);
-
 /*
 16. Log Array Elements with Their Indices
     - Define a function `logElementsWithIndex(arr)` that loops through the array
@@ -245,7 +243,6 @@ function countOccurrences(arr, word) {
 }
 
 countOccurrences(["nurtap", "serhat", "ece", "nurtap", "sevtap"], "nurtap");
-
 /*
 19. Remove Falsy Values
     - Define a function `removeFalsyValues(arr)` that loops through an array
@@ -335,6 +332,7 @@ function findWordsWithLetter(words, letter) {
 }
 findWordsWithLetter(["guney", "selam", "nurtap"], "e");
 
+
 /*
 24. Push and Pop Operations
     - Define a function `pushPopExample(arr, itemToPush)` that:
@@ -370,6 +368,7 @@ function manageQueue(queue, newPerson) {
 }
 
 manageQueue(["first person", "second person"], "new person");
+
 
 /*
 26. To-Do List Application 

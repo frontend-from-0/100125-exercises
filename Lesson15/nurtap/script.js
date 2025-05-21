@@ -105,7 +105,7 @@ sumObjectValues({ a: 10, b: 20, c: 5 });
 
 function printObjectKeys(obj) {
   for (const key in obj) {
-    console.log(obj[key]);
+    console.log(key);
   }
 }
 printObjectKeys({ name: "Alice", age: 25 });

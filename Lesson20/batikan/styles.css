@@ -29,10 +29,6 @@ header {
   flex-direction: column;
 }
 
-.hidden {
-  display: none;
-}
-
 h1 {
   font-size: 2rem;
   margin: 0;
@@ -568,6 +564,10 @@ fieldset {
     inset 0 0.0625rem 0 rgba(255, 255, 255, 0.2);
 }
 
+.hidden {
+  display: none;
+}
+
 .gap--12 {
   gap: 0.75rem;
 }
@@ -585,56 +585,6 @@ fieldset {
 
 #confirmationCard {
   animation: slideIn 0.4s ease-out;
-}
+};
 
-@media (max-width: 48rem) {
-  .booking {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  .wrapper {
-    width: 100%;
-    max-width: 31.25rem;
-  }
-
-  .summary {
-    width: 100%;
-    max-width: 31.25rem;
-  }
-
-  .spacing__container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 30rem) {
-  .container {
-    padding: 16px;
-  }
-
-  .customer,
-  .calendar,
-  .summary {
-    padding: 1.5rem;
-  }
-
-  #confirmationCard {
-    padding: 1.5rem;
-  }
-
-  #confirmationCard h2 {
-    font-size: 1.5rem;
-  }
-
-  #confirmationCard p {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
-  }
-
-  #confirmationCard p span {
-    align-self: flex-end;
-  }
-}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Checkout</title>
+  </head>
+  <body>
+    <main id="mainContainer" class="flex flex-col">
+      <div class="flex gap-8">
+        <a href="">Cart</a><span>/</span><a href="" class="active">Checkout</a>
+      </div>
+      <h1>Checkout</h1>
+      <form
+        novalidate
+        id="checkoutForm"
+        method="post"
+        class="flex flex-col gap-24"
+      >
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email@example.com"
+            name="email"
+          />
+          <div id="emailErrorContainer" class="speech-bubble hidden">
+            <p id="emailError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="555 123 4567"
+            name="phoneNumber"
+          />
+          <div id="phoneErrorContainer" class="speech-bubble hidden">
+            <p id="phoneError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="firstname">First Name</label>
+          <input
+            id="firstname"
+            type="text"
+            placeholder="Sophia"
+            name="firstname"
+          />
+          <div id="firstNameErrorContainer" class="speech-bubble hidden">
+            <p id="firstNameError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="lastname">Last Name</label>
+          <input
+            id="lastname"
+            type="text"
+            placeholder="Clark"
+            name="lastname"
+          />
+          <div id="lastNameErrorContainer" class="speech-bubble hidden">
+            <p id="lastNameError" class="input-error"></p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="address">Address</label>
+          <input
+            id="address"
+            type="text"
+            placeholder="123 Maple Street"
+            name="address"
+          />
+          <div id="addressErrorContainer" class="speech-bubble hidden">
+            <p id="addressError" class="input-error"></p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="city">City</label>
+          <input id="city" type="text" placeholder="Anytown" name="city" />
+          <div id="cityErrorContainer" class="speech-bubble hidden">
+            <p id="cityError" class="input-error"></p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="state">State</label>
+          <input id="state" type="text" placeholder="Anystate" name="state" />
+          <div id="stateErrorContainer" class="speech-bubble hidden">
+            <p id="stateError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="zipcode">Zip Code</label>
+          <input id="zipcode" type="text" placeholder="90210" name="zipcode" />
+          <div id="zipErrorContainer" class="speech-bubble hidden">
+            <p id="zipError" class="input-error"></p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="cardnumber">Card Number</label>
+          <input
+            id="cardNumber"
+            type="text"
+            placeholder="1234 5678 9101 1121"
+            name="cardnumber"
+          />
+          <div id="cardNumberErrorContainer" class="speech-bubble hidden">
+            <p id="cardNumberError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="expDate">Expiration Date</label>
+          <input id="expDate" type="text" placeholder="MM/YY" name="expDate" />
+          <div id="expDateErrorContainer" class="speech-bubble hidden">
+            <p id="expDateError" class="input-error"></p>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" type="text" placeholder="123" name="cvv" />
+          <div id="cvvErrorContainer" class="speech-bubble hidden">
+            <p id="cvvError" class="input-error"></p>
+          </div>
+        </div>
+        <div>
+          <button id="success-btn" type="submit" class="btn-success">
+            Place Order
+          </button>
+        </div>
+      </form>
+    </main>
+    <div id="conf-overlay" class="confirmation-overlay">
+      <div id="conf-container" class="confirmation-container hidden">
+        <button id="go-back" class="go-back-btn"></button>
+
+        <div class="floating-particle"></div>
+        <div class="floating-particle"></div>
+        <div class="floating-particle"></div>
+
+        <div class="confirmation-header">
+          <div class="confirmation-icon"></div>
+          <h2 class="confirmation-title">Order Confirmed!</h2>
+          <p class="confirmation-subtitle">
+            Thank you for your purchase. Your order has been successfully placed
+            and is being processed.
+          </p>
+        </div>
+
+        <div class="confirmation-details">
+          <div class="detail-row">
+            <span class="detail-label">Order Number</span>
+            <span class="detail-value order-number">#ORD-2025-001234</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Email Confirmation</span>
+            <span id="displayed-email" class="detail-value">-</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Address</span>
+            <span id="displayed-address" class="detail-value">-</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Estimated Delivery</span>
+            <span class="detail-value">3-5 business days</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Subtotal</span>
+            <span class="detail-value">$89.99</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">Shipping</span>
+            <span class="detail-value">$9.99</span>
+          </div>
+          <div class="detail-row total-row">
+            <span class="detail-label">Total</span>
+            <span class="detail-value">$99.98</span>
+          </div>
+        </div>
+
+        <div class="confirmation-actions">
+          <button class="btn-secondary">Continue Shopping</button>
+          <button class="btn-primary">Track Order</button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

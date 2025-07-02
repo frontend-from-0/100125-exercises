@@ -43,13 +43,13 @@ const products = [
 
 const totalPriceElement = document.getElementById('totalPriceId');
 let total = parseInt(totalPriceElement.textContent);
-const clearAll = document.getElementById('cart_preview')
+const clearAllButton = document.getElementById('clearAllButton');
 
 
 products.map((product) => {
   const addButton = document.getElementById(product.addButtonId);
   const removeButton = document.getElementById(product.removeButtonId);
-  const clearAllButton = document.getElementById('clearAllButton');
+
 
   if (addButton) {
     addButton.addEventListener('click', () => {
@@ -64,20 +64,16 @@ products.map((product) => {
     })
   }
 
-  if (clearAllButton) {
-    clearAllButton.addEventListener('click', () => {
-      clearAllCart();
-    })
-  }
+
 });
+
+clearAllButton.addEventListener('click', () => clearAllCart());
 
 
 function addToCart(cartId, quantityElementId) {
   const productCart = document.getElementById(cartId);
   const quantityElement = document.getElementById(quantityElementId);
   let quantity = parseInt(quantityElement.textContent);
-
-  productCart.classList.remove('hidden');
 
   quantity++;
 
@@ -89,12 +85,16 @@ function addToCart(cartId, quantityElementId) {
 function removeFromCart(cartId, quantityId, price) {
   const productCart = document.getElementById(cartId);
   const quantityElement = document.getElementById(quantityId);
-  const currentQuantity = parseInt(quantityElement.textContent);
+  let currentQuantity = parseInt(quantityElement.textContent);
 
-  if (currentQuantity >= 0) {
+  if (currentQuantity > 0) {
+    currentQuantity--;
+    quantityElement.textContent = currentQuantity;
+    subtractTotalPrice(price);
+  }
+
+  if (currentQuantity === 0) {
     productCart.classList.add('hidden');
-    quantityElement.textContent = 0;
-    subtractTotalPrice(currentQuantity * price);
   }
 }
 
@@ -113,22 +113,14 @@ function subtractTotalPrice(price) {
 
 function clearAllCart() {
 
-  const quantities = products.map(product => product.quantityId);
-  quantities.forEach(quantityId => {
-    const quantitySpanElement = document.getElementById(quantityId);
-    if (quantitySpanElement) {
-      quantitySpanElement.textContent = 0;
+  products.forEach(product => {
+    const quantityElement = document.getElementById(product.quantityId);
+    const cartElement = document.getElementById(product.cartId);
 
-    }
+    if (quantityElement) quantityElement.textContent = 0;
+    if (cartElement) cartElement.classList.add('hidden');
   });
 
-  const cartIds = products.map(product => product.cartId);
-  cartIds.forEach(cartId => {
-    const cartIdElement = document.getElementById(cartId);
-    if (cartId) {
-      cartIdElement.classList.add('hidden');
-    }
-  })
   total = 0;
   totalPriceElement.textContent = 0;
 

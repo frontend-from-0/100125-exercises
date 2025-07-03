@@ -72,63 +72,11 @@ h1 {
 .input-error {
   color: #8fccb8;
   transition: all ease-in-out 1s;
+  margin-top: 10px;
 }
 
 p {
   margin: 0;
-}
-
-#emailErrorContainer,
-#phoneErrorContainer,
-#firstNameErrorContainer,
-#lastNameErrorContainer,
-#addressErrorContainer,
-#cityErrorContainer,
-#stateErrorContainer,
-#zipErrorContainer,
-#cardNumberErrorContainer,
-#expDateErrorContainer,
-#cvvErrorContainer {
-  color: #8fccb8;
-  transition: all ease-in-out 1s;
-  transform: translate(385px, 20px);
-  padding-top: 4px;
-}
-
-.speech-bubble {
-  position: relative;
-  background-color: hsl(159, 50%, 20%);
-  border: 2px solid #333;
-  max-width: 320px;
-  line-height: 1.4;
-  border-radius: 12px;
-  height: 55px;
-  padding-left: 5px;
-  padding-top: 2px;
-}
-
-.speech-bubble::after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 10px;
-  width: 0;
-  height: 0;
-  border-bottom: 15px solid hsl(159, 50%, 20%);
-  border-left: 20px solid transparent;
-  border-right: 8px solid transparent;
-}
-
-.speech-bubble::before {
-  content: "";
-  position: absolute;
-  top: -17px;
-  left: 8px;
-  width: 0;
-  height: 0;
-  border-bottom: 17px solid hsl(159, 50%, 20%);
-  border-left: 22px solid transparent;
-  border-right: 10px solid transparent;
 }
 
 .input-group label {
@@ -199,7 +147,7 @@ input:focus {
   position: relative;
   transform: translateY(0);
   animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  max-height: 90vh;
+
 }
 
 .go-back-btn {

@@ -46,8 +46,7 @@ checkoutForm.addEventListener('submit', function (e) {
   if (formCorrect) {
     checkoutForm.classList.add('hidden');
     document.getElementById('conf-container').classList.remove('hidden');
-    document.getElementById('conf-container').classList.add('flex');
-    document.getElementById('conf-container').classList.add('flex-col');
+    document.getElementById('conf-container').classList.add('flex', 'flex-col');
     document.getElementById('conf-overlay').classList.add('fixed');
     updateDisplayedValue()
   }
@@ -71,18 +70,17 @@ document.getElementById('go-back').addEventListener('click', (e) => closeConfirm
 
 function showError(inputElement, message) {
   const inputGroup = inputElement.closest('.input-group');
-  const errorContainer = inputGroup.querySelector('.speech-bubble');
   const errorElement = inputGroup.querySelector('.input-error');
 
+  errorElement.classList.remove('hidden');
   errorElement.innerText = message;
-  errorContainer.classList.remove('hidden');
 }
 
 function hideError(inputElement) {
   const inputGroup = inputElement.closest('.input-group');
-  const errorContainer = inputGroup.querySelector('.speech-bubble');
+  const errorElement = inputGroup.querySelector('.input-error');
 
-  errorContainer.classList.add('hidden');
+  errorElement.classList.add('hidden');
 }
 
 //Input Validations
@@ -148,8 +146,8 @@ function validateLastName(lastnameInput, element) {
 }
 
 function validateAddress(addressInput, element) {
-  if (addressInput === "") {
-    showError(element, 'Address cannot be empty.');
+  if (addressInput.trim().length === 0 || addressInput.trim().length > 150) {
+    showError(element, 'Address cannot be empty or longer than 150 characters');
     return false;
   } else {
     hideError(element);
@@ -158,8 +156,13 @@ function validateAddress(addressInput, element) {
 }
 
 function validateCity(cityInput, element) {
-  if (cityInput === "") {
-    showError(element, 'This field cannot be empty.');
+  const cityPattern = /^\p{L}+(?: \p{L}+)*$/u;
+
+  if (cityInput.trim().length === 0 || cityInput.trim().length > 30) {
+    showError(element, 'This field cannot be empty or longer than 30 characters.');
+    return false;
+  } else if (!cityPattern.test(cityInput.trim())) {
+    showError(element, 'Only letters and a single space between words are allowed.');
     return false;
   } else {
     hideError(element);
@@ -168,8 +171,13 @@ function validateCity(cityInput, element) {
 }
 
 function validateState(stateInput, element) {
-  if (stateInput === "") {
-    showError(element, 'This field cannot be empty.');
+  const statePattern = /^\p{L}+(?: \p{L}+)*$/u;
+
+  if (stateInput.trim().length === 0 || stateInput.trim().length > 15) {
+    showError(element, 'This field cannot be empty or longer than 15 characters.');
+    return false;
+  } else if (!statePattern.test(stateInput.trim())) {
+    showError(element, 'Only letters and a single space between words are allowed.');
     return false;
   } else {
     hideError(element);
@@ -178,7 +186,7 @@ function validateState(stateInput, element) {
 }
 
 function validateZip(zipInput, element) {
-  if (zipInput === "") {
+  if (zipInput.trim().length === 0) {
     showError(element, 'Zipcode cannot be empty.');
     return false;
   } else {

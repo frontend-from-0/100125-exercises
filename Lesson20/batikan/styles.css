@@ -419,6 +419,8 @@ fieldset {
   border: 0.0625rem solid rgba(255, 255, 255, 0.2);
 }
 
+
+
 .missing__input__notification {
   position: fixed;
   top: 1.25rem;
@@ -444,7 +446,7 @@ fieldset {
 
 .email__notification.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(.9375rem);
 }
 
 .sms__notification.show {

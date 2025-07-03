@@ -100,6 +100,34 @@ function updateDisplayedName() {
   updateDisplay(elements.enteredName, elements.bookedName, displayName);
 }
 
+
+function checkAndSubmitForm(event) {
+  event.preventDefault();
+
+  if (!validateForm()) {
+    showNotification(elements.missingInput, 5000);
+    return;
+  }
+
+  toggleFormVisibility();
+
+  const emailCheckbox = document.getElementById('e-mail');
+  const smsCheckbox = document.getElementById('sms');
+
+  if (emailCheckbox.checked && smsCheckbox.checked) {
+    showNotification(elements.emailNotification, 2000, '70px');
+    showNotification(elements.smsNotification);
+  } else {
+    if (emailCheckbox.checked) {
+      showNotification(elements.emailNotification);
+    }
+    if (smsCheckbox.checked) {
+      showNotification(elements.smsNotification);
+    }
+  }
+}
+
+
 function updatePhoneNumber() {
   const countryCodeValue = elements.countryCode.value.trim();
   const phoneNumberValue = elements.phoneInput.value.trim();
@@ -139,13 +167,11 @@ function validateForm() {
 }
 
 
-function toggleFormVisibility(showForm = true) {
-  const method = showForm ? 'remove' : 'add';
-  elements.form.classList[method]('hidden');
-  elements.heading.classList[method]('hidden');
-
-  elements.confirmationCard.classList[showForm ? 'add' : 'remove']('hidden');
-  elements.confirmationCard.classList[showForm ? 'remove' : 'add']('flex');
+function toggleFormVisibility() {
+  elements.form.classList.toggle('hidden');
+  elements.heading.classList.toggle('hidden');
+  elements.confirmationCard.classList.toggle('hidden');
+  elements.confirmationCard.classList.toggle('flex');
 }
 
 function setupEventListeners() {
@@ -171,34 +197,10 @@ function setupEventListeners() {
     button.addEventListener('click', handleTimeSlotClick);
   });
 
-  elements.form.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    if (!validateForm()) {
-      showNotification(elements.missingInput, 5000);
-      return;
-    }
-
-    toggleFormVisibility(false);
-
-    const emailCheckbox = document.getElementById('e-mail');
-    const smsCheckbox = document.getElementById('sms');
-
-    if (emailCheckbox.checked && smsCheckbox.checked) {
-      showNotification(elements.emailNotification, 2000, '70px');
-      showNotification(elements.smsNotification);
-    } else {
-      if (emailCheckbox.checked) {
-        showNotification(elements.emailNotification);
-      }
-      if (smsCheckbox.checked) {
-        showNotification(elements.smsNotification);
-      }
-    }
-  });
+  elements.form.addEventListener('submit', checkAndSubmitForm);
 
   elements.returnButton.addEventListener('click', function () {
-    toggleFormVisibility(true);
+    toggleFormVisibility();
     location.reload();
   });
 }

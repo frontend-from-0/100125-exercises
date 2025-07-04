@@ -14,6 +14,8 @@ const products = [
     removeButtonId: 'apples_remove',
     cartId: 'apples_cart',
     price: 5,
+    decrease: 'apples_decrease',
+    increase: 'apples_increase',
   },
   {
     name: 'bananas',
@@ -22,6 +24,8 @@ const products = [
     removeButtonId: 'bananas_remove',
     cartId: 'bananas_cart',
     price: 3,
+    decrease: 'bananas_decrease',
+    increase: 'bananas_increase',
   },
   {
     name: 'bread',
@@ -30,6 +34,8 @@ const products = [
     removeButtonId: 'bread_remove',
     cartId: 'bread_cart',
     price: 4,
+    decrease: 'bread_decrease',
+    increase: 'bread_increase',
   },
   {
     name: 'eggs',
@@ -38,6 +44,8 @@ const products = [
     removeButtonId: 'eggs_remove',
     cartId: 'eggs_cart',
     price: 4,
+    decrease: 'eggs_decrease',
+    increase: 'eggs_increase',
   },
 ];
 
@@ -49,6 +57,8 @@ const clearAllButton = document.getElementById('clearAllButton');
 products.map((product) => {
   const addButton = document.getElementById(product.addButtonId);
   const removeButton = document.getElementById(product.removeButtonId);
+  const decreaseButton = document.getElementById(product.decrease);
+  const increaseButton = document.getElementById(product.increase);
 
 
   if (addButton) {
@@ -64,15 +74,26 @@ products.map((product) => {
     })
   }
 
+  if (decreaseButton) {
+    decreaseButton.addEventListener('click', () => {
+      decreaseQuantity(product.quantityId, product.cartId, product.price);
+    })
+  }
 
+  if (increaseButton) {
+    increaseButton.addEventListener('click', () => {
+      increaseQuantity(product.quantityId, product.price);
+    })
+  }
 });
 
 clearAllButton.addEventListener('click', () => clearAllCart());
 
 
-function addToCart(cartId, quantityElementId) {
+
+function addToCart(cartId, quantityId) {
   const productCart = document.getElementById(cartId);
-  const quantityElement = document.getElementById(quantityElementId);
+  const quantityElement = document.getElementById(quantityId);
   let quantity = parseInt(quantityElement.textContent);
 
   quantity++;
@@ -88,14 +109,42 @@ function removeFromCart(cartId, quantityId, price) {
   let currentQuantity = parseInt(quantityElement.textContent);
 
   if (currentQuantity > 0) {
-    currentQuantity--;
-    quantityElement.textContent = currentQuantity;
-    subtractTotalPrice(price);
+    subtractTotalPrice(currentQuantity * price);
+    quantityElement.textContent = 0;
+    productCart.classList.add('hidden');
   }
 
   if (currentQuantity === 0) {
     productCart.classList.add('hidden');
   }
+}
+
+function decreaseQuantity(quantityId, cartId, price) {
+
+  const productCart = document.getElementById(cartId)
+  const quantityElement = document.getElementById(quantityId);
+  let currentQuantity = parseInt(quantityElement.textContent);
+
+  if (currentQuantity > 1) {
+    currentQuantity--;
+    quantityElement.textContent = currentQuantity;
+    subtractTotalPrice(price);
+  } else if (currentQuantity === 1) {
+    currentQuantity--;
+    quantityElement.textContent = currentQuantity;
+    subtractTotalPrice(price);
+    productCart.classList.add('hidden');
+  }
+}
+
+function increaseQuantity(quantityId, price) {
+  const quantityElement = document.getElementById(quantityId);
+  let quantity = parseInt(quantityElement.textContent);
+
+  quantity++;
+
+  quantityElement.textContent = quantity;
+  addTotalPrice(price)
 }
 
 function addTotalPrice(price) {
@@ -106,6 +155,8 @@ function addTotalPrice(price) {
 
 function subtractTotalPrice(price) {
   total -= price;
+
+  if (total < 0) total = 0;
   totalPriceElement.textContent = total;
 }
 

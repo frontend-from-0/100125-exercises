@@ -12,6 +12,21 @@
     <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .notification {
+        animation: slideIn 0.3s ease-out;
+      }
+    </style>
   </head>
   <body
     class="size-full min-h-screen bg-[#fcf8f8] group/design-root overflow-x-hidden"
@@ -50,8 +65,7 @@
           Products
         </h2>
         <div id="products-container"></div>
-        <div id="cartPreview-container" class="">
-        </div>
+        <div id="cartPreview-container" class=""></div>
       </main>
 
       <script src="./script.js"></script>

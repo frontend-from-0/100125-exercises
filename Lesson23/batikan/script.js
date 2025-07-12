@@ -25,8 +25,11 @@ function createProductCard(product) {
   div2.classList.add('flex', 'items-stretch', 'justify-between', 'gap-4', 'rounded-xl');
 
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('w-full', 'bg-center', 'bg-no-repeat', 'aspect-video', 'bg-cover', 'rounded-xl', 'flex-1');
-  imgContainer.style.backgroundImage = `url('${product.thumbnail}')`;
+  imgContainer.classList.add('w-full', 'bg-center', 'aspect-video', 'bg-cover', 'rounded-xl', 'flex-1')
+  const imgElement = document.createElement('img');
+  imgElement.classList.add('w-full', 'bg-center', 'aspect-video', 'bg-cover', 'rounded-xl', 'flex-1');
+  imgElement.src = product.thumbnail;
+  imgElement.alt = 'Product picture';
 
   const div3 = document.createElement('div');
   div3.classList.add('flex', 'flex-[2_2_0px]', 'flex-col', 'gap-4');
@@ -40,7 +43,7 @@ function createProductCard(product) {
 
   const price = document.createElement('span');
   price.classList.add('mr-4');
-  price.id = 'price'
+  price.id = `price-${product.id}`;
   price.textContent = product.price;
 
   const button = document.createElement('button');
@@ -91,6 +94,7 @@ function createProductCard(product) {
   buttonParentContainer.appendChild(button);
   div3.appendChild(buttonParentContainer);
   div2.appendChild(div3);
+  imgContainer.appendChild(imgElement);
   div2.appendChild(imgContainer);
   row.appendChild(div2);
   document.getElementById('products-container').appendChild(row);
@@ -176,6 +180,8 @@ function clearCart() {
 }
 
 function changePage(page) {
+  const totalPages = Math.ceil(Object.keys(cart).length / itemsPerPage);
+  if (page < 1 || page > totalPages) return;
   currentPage = page;
   renderCart();
   updateTotalPrice();
@@ -246,8 +252,8 @@ function renderCart() {
     cartHTML += `
               <div id="${item.id}_cart" class="flex items-center gap-4 bg-[#fcf8f8] px-4 min-h-[72px] py-2 justify-between">
                 <div class="flex items-center gap-4">
-                  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14"
-                       style="background-image: url('${item.thumbnail}');">
+                  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14">
+                       <img class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-14" src="${item.thumbnail}" alt="Product picture">
                   </div>
                   <div class="flex flex-col justify-center">
                     <p class="text-[#1b0e0f] text-base font-medium leading-normal line-clamp-1">

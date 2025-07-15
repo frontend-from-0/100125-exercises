@@ -63,6 +63,12 @@ console.log(mixedCaseGreeting); // HeLlO WoRlD
 // 7. Concatenate "Hello" and "World" with a space in between and log the result.
 // CODE HERE
 
+const array1 = ['h', 'e', 'l', 'l', 'o'];
+const array2 = ['w', 'o', 'r', 'l', 'd'];
+const wholeArray = array1.concat([' '], array2);
+console.log(wholeArray.join(''));
+
+
 // 8. Check the type of a variable, e.g., let x = 42. Log the type using typeof.
 // CODE HERE
 const x = 42;
@@ -200,7 +206,7 @@ console.log('Ex.26', 'NumberEx11 = ', numberEx11, 'Prefix ++ = ', ++numberEx11, 
 
 let aa = 2;
 console.log('Ex.27', ' a = ', aa, 'prefix ++a = ', ++aa);
-let bb = 3;
+const bb = 3;
 
 console.log('Ex.27', ' prefix ++a = ', aa, 'b = ', bb);
 let result= aa + bb;

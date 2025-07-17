@@ -29,13 +29,17 @@ sumRange(6,8);
 */
 
 function reverseArray(arr){
-let reverseArr=[];
-  for (let j=0; j<arr.length; j++){
-    reverseArr.push(arr[((arr.length-1)-j)]);
-    
+let reversedArr=[];
+// my solution was:
+  //for (let j=0; j<arr.length; j++){
+   // reverseArr.push(arr[((arr.length-1)-j)]);
 
+  //Anna's suggestion
+    for (let i = arr.length - 1; i >= 0; i--) {
+    reversedArr.push(arr[i]);
   }
-  console.log("Array= ", arr , "Reverse Array = ",reverseArr);
+    
+  console.log("Array= ", arr , "Reverse Array = ",reversedArr);
 }
 
 reverseArray(["A","y","S","E","N"]);
@@ -103,17 +107,17 @@ doubleValues([2,3,4,6,8,9,10]);
 
 function sumObjectValues(obj)
 {
-  let ssum=0;
-  for (let aa in obj){
+  let sum=0;
+  for (let key in obj){
 
-    console.log(aa, obj[aa]);
+    console.log(key, obj[key]);
     
-    if (typeof obj[aa] === 'number'){
-      ssum+=obj[aa];
+    if (typeof obj[key] === 'number'){
+      sum+=obj[key];
 
     }
   }
-  console.log("sum is =",ssum);
+  console.log("sum is =",sum);
 }
 
 
@@ -131,8 +135,8 @@ sumObjectValues( [10,"b",20,50,6]);
 
 function printObjectKeys(obj)
 {
-  for (let jj in obj){
-    console.log(jj);
+  for (let key in obj){
+    console.log(key);
    // console.log(obj[jj]);
   }
 }
@@ -149,14 +153,14 @@ printObjectKeys({ name: "Alice", age: 25 });
 
 function sumWithDoWhile(numbers){
 let total=0;
-let iii=0;
+let i=0;
 
 do{
-  if (typeof numbers[iii] === "number"){
-total+=numbers[iii];
+  if (typeof numbers[i] === "number"){
+total+=numbers[i];
   }
-  iii++;
-}while (iii< numbers.length);
+  i++;
+}while (i< numbers.length);
 
 console.log('Total is = ', total);
 }
@@ -175,10 +179,10 @@ sumWithDoWhile([1,4,7,8,9,["c",10],0,45,79, "A", 'b']);
 
 function removeDuplicates(arr){
   let noDuplicated=[];
-  for (let aa of arr){
-    if (noDuplicated.includes(aa))
-      {console.log("Duplicated ",aa);}
-    else{ noDuplicated.push(aa);}
+  for (let element of arr){
+    if (noDuplicated.includes(element))
+      {console.log("Duplicated ",element);}
+    else{ noDuplicated.push(element);}
   }
 console.log("Not Duplicated=",noDuplicated);
 }
@@ -195,8 +199,8 @@ removeDuplicates(["A","a","a","b","b",'c',1,1,10,2,2,["c",1],'c']);
 
 function factorial(n){
   let factorial=1;
-  for (let bb=1; bb<=n; bb++){
-    factorial*=bb;
+  for (let number=1; number<=n; number++){
+    factorial*=number;
 
   }
   console.log("Factorial(", n,")=",factorial);
@@ -215,14 +219,14 @@ factorial(10);
 
 function reverseWords(sentence){
 
-  let words=sentence.split(" ");
-  let reverseWord=[];
+  const words=sentence.split(" ");
+  //let reverseWord=[];
   let reversedSentence=[];
-  for (let cc= words.length-1; cc>=0; cc--){
-    reverseWord.push(words[cc]);
+  for (let i= words.length-1; i>=0; i--){
+    reversedSentence.push(words[i]);
   }
-   reversedSentence= reverseWord.join(" ");
-console.log("REVERSED SENTENCES = ",reversedSentence);
+   //reversedSentence= reverseWord.join(" ");
+console.log("REVERSED SENTENCE = ",reversedSentence.join(" "));
 }
 
 reverseWords("I LOVE JUMPNG");
@@ -236,10 +240,10 @@ reverseWords("I LOVE JUMPNG");
 */
 function filterLongWords(words, minLength) {
    let longWords=[];
-  for (let c of words){
-    if (c.length >= minLength){
+  for (let i of words){
+    if (i.length >= minLength){
 
-longWords.push(c);  
+longWords.push(i);  
     }
 
 }
@@ -257,9 +261,9 @@ filterLongWords(['Aysen','Mia',"Sahil"],4);
 */
 
 function logElementsWithIndex(arr){
-  for (let cc=0; cc<arr.length; cc++)
+  for (let i=0; i<arr.length; i++)
   {
-    console.log("Index: ", cc, "Value: ", arr[cc]);
+    console.log("Index: ", i, "Value: ", arr[i]);
   }
 
 }
@@ -279,10 +283,10 @@ function findMin(numbers){
 
   let minNumber=numbers[0];
 
-  for (let aaaa=1 ; aaaa< numbers.length; aaaa++)
+  for (let i=1 ; i< numbers.length; i++)
   {
-    if (numbers[aaaa] < minNumber)
-      {minNumber=numbers[aaaa];
+    if (numbers[i] < minNumber)
+      {minNumber=numbers[i];
       }
 
   }
@@ -300,9 +304,9 @@ findMin([4,6,9,100,0,6,75,103,3,-1,102]);
 
 function countOccurrences(arr, word){
   let counter=0;
-  for (let x of arr)
+  for (let element of arr)
   {
-    if (x=== word) {counter+=1;}
+    if (element=== word) {counter+=1;}
   }
 console.log(counter);
 }
@@ -323,10 +327,10 @@ countOccurrences(['Aysen','Mia', "Mia",'banana','apples'],'Banana');
 
 function removeFalsyValues(arr) {
   let truthyArr = [];
-  for (let tArr of arr) {
+  for (let element of arr) {
 
-    if (tArr) { 
-      truthyArr.push(tArr);
+    if (element) { 
+      truthyArr.push(element);
     }
   }
 
@@ -345,10 +349,10 @@ removeFalsyValues([1, 'false', 0, "", "Hello", false, null, undefined, NaN, "Wor
 
 function sumDigits(str){
   let sumOfDigit=0;
-  let strSplited = str.split('');
-  for (let digitStr of strSplited){
-   if (!isNaN(digitStr)){
-      sumOfDigit+=Number(digitStr);
+  let characters = str.split('');
+  for (let char of characters){
+   if (!isNaN(char)){
+      sumOfDigit+=Number(char);
     }
   }
   console.log(sumOfDigit);

@@ -124,7 +124,8 @@ function updateFlashcard(question, newQuestion, newAnswer) {
     if (card.question === question) {
       card.question = newQuestion;
       card.answer = newAnswer;
-      console.log(`Flashcard updated succesfully with the question: ${newQuestion} and answer: ${newAnswer}`);
+      console.log(`Flashcard updated successfully to: Q='${newQuestion}' | A='${newAnswer}'`);
+      return;
     }
   }
   console.log(`Flashcard with question '${question}' not found.`);
@@ -139,14 +140,14 @@ Function: removeFlashcard(question)
 - Logs if removed or not found.
 */
 function removeFlashcard(question) {
-  const index = flashcards.findIndex(flashcards.question);
-
-  if (index >= 0 && index < flashcards.length) {
-    flashcards.splice(index, 1);
-    console.log(`Flashcard with question '${question}' removed successfully.`)
-  }else {
-    console.log(`Flashcard with question '${question}' not found.`);
+  for (let i = 0; i < flashcards.length; i++) {
+    if (flashcards[i].question === question) {
+      flashcards.splice(i, 1);
+      console.log(`Flashcard with question '${question}' removed successfully.`);
+      return; // bulunduğu anda çık
+    }
   }
+  console.log(`Flashcard with question '${question}' not found.`);
 }
 
 /*
@@ -155,6 +156,26 @@ function removeFlashcard(question) {
 -----------------------------------------------------------
 Use these function calls to test your app.
 */
+
+console.log("Initial flashcards:");
+showAllFlashcards();
+
+addFlashcard('What is JS?', 'A programming language');
+addFlashcard('What is Python?', 'A programming language for many purposes');
+
+console.log("After adding new cards:");
+showAllFlashcards();
+
+practiceFlashcard(1);
+practiceFlashcard(3);
+
+updateFlashcard('What is Python?', 'What is Python?', 'A versatile programming language');
+console.log("After update:");
+showAllFlashcards();
+
+removeFlashcard('What is HTML?');
+console.log("After removal:");
+showAllFlashcards();
 
 /*
 -----------------------------------------------------------
@@ -167,3 +188,43 @@ Use these function calls to test your app.
 3. Flip Mode:
    - First show only question, then show answer after delay.
 */
+
+function practiceRandomFlashcard() {
+  if (flashcards.length === 0) {
+    console.log("No flashcards available.");
+    return;
+  }
+  const randomIndex = Math.floor(Math.random() * flashcards.length);
+  practiceFlashcard(randomIndex);
+}
+
+function addFlashcardWithTag(question, answer, tag) {
+  if (flashcards.some(card => card.question === question)) {
+    console.log(`Flashcard with question '${question}' already exists`);
+    return;
+  }
+  flashcards.push({ question, answer, tag });
+  console.log(`Added new flashcard with tag '${tag}': '${question}'`);
+}
+
+function showFlashcardsByTag(tag) {
+  const taggedCards = flashcards.filter(card => card.tag === tag);
+  if (taggedCards.length === 0) {
+    console.log(`No flashcards found for tag '${tag}'`);
+    return;
+  }
+  console.log(`Flashcards with tag '${tag}':`);
+  for (const card of taggedCards) {
+    console.log(`${card.question} --- ${card.answer}`);
+  }
+}
+
+
+addFlashcardWithTag('What is React?', 'A JS library for UI', 'JavaScript');
+addFlashcardWithTag('What is Flexbox?', 'A CSS layout mode', 'CSS');
+
+console.log("\nRandom practice example:");
+practiceRandomFlashcard();
+
+console.log("\nFlashcards with tag 'CSS':");
+showFlashcardsByTag('CSS');

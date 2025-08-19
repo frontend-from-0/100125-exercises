@@ -243,7 +243,7 @@ displayAllContacts();
    - e.g., find a contact by phone number or email.
 */
 
-function findContact1(name) {
+function findContactByPartialName(name) {
   for (const contact of contacts) {
 
     if(contact.name.toLowerCase().includes(name.toLowerCase())){ // this allows partial matches but shows first match only
@@ -256,9 +256,9 @@ function findContact1(name) {
 }
 
 console.log("\nTesting Optional enhancements:");
-findContact1("Ali");
-findContact1("Alice");
-findContact1("Char");
+findContactByPartialName("Ali");
+findContactByPartialName("Alice");
+findContactByPartialName("Char");
 
 function sortContacts() {
   contacts.sort((a, b) => a.name.localeCompare(b.name));// Sort contacts alphabetically by name permanently (case-insensitive) if a come first it will return -1, if b comes first it will return 1, if they are equal it will return 0

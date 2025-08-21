@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <a href="/Lesson21/yigit/cart.html" id="cartTitle">Cart</a> <span>/</span> <a href="/Lesson21/yigit/index.html" id="checkoutTitle">Checkout</a>  
+
+    <h1>Checkout</h1>
+
+  <form novalidate id="checkoutForm" method="post">
+
+  
+
+   <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email@example.com"
+            name="email" 
+            required
+            />
+        </div>
+
+    <div class="input-group">
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="555 123 4567"
+            name="phoneNumber"
+            required
+          />
+          </div>
+
+    <div class="input-group">
+          <label for="firstname">First Name</label>
+          <input
+            id="firstname"
+            type="text"
+            placeholder="Sophia"
+            name="firstname"
+            required
+          />
+          </div>
+
+    <div class="input-group">
+          <label for="lastname">Last Name</label>
+          <input
+            id="lastname"
+            type="text"
+            placeholder="Clark"
+            name="lastname"
+            required
+          />
+          </div>
+
+   <div class="input-group">
+      <label for="address">Address</label>
+      <input
+        id="address"
+        type="text"
+        placeholder="123 Maple Street"
+        name="address"
+        required
+      />
+      </div>
+
+    <div class="input-group">
+      <label for="city">City</label>
+      <input id="city" 
+      type="text" placeholder="Anytown" name="city" 
+      required
+      />
+      </div>
+
+    <div class="input-group">
+       <label for="state">State</label>
+      <input id="state" 
+      type="text" 
+      placeholder="Anystate" 
+      name="state" 
+      required
+      />  
+    </div> 
+  
+    <div class="input-group">
+          <label for="zipcode">Zip Code</label>
+          <input id="zipcode" 
+          type="text" 
+          placeholder="90210" name="zipcode" 
+          required/>
+          </div>
+
+
+    
+    <div class="input-group">
+          <label for="cardnumber">Card Number</label>
+          <input
+            id="cardNumber"
+            type="text"
+            placeholder="1234 5678 9101 1121"
+            name="cardnumber"
+          required/>
+          </div>
+
+    <div class="input-group">
+          <label for="expDate">Expiration Date</label>
+          <input id="expDate" 
+                 type="text"
+                 placeholder="MM/YY" 
+                 name="expDate" 
+                 required
+               />
+          </div>
+
+    <div class="input-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" 
+                    type="text" 
+                    placeholder="123" 
+                    name="cvv"
+                    required 
+                />
+            </div>
+
+             <div>
+            <button id="success-btn" type="submit" class="btn-success">Place Order</button>
+            </div>
+  </form>
+  <div class="hidden" id="success">
+      <p>success!</p>
+  </div>
+  </main>
+  <script src="./script.js"></script>
+</body>
+</html>

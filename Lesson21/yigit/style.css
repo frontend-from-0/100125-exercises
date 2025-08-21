@@ -1,0 +1,102 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  background-color: hsl(161, 38%, 11%);
+  color: #fff;
+
+}
+
+main {
+  max-width: 960px;
+  margin: 96px auto;
+}
+
+a {
+  text-decoration: none;
+   font-weight: 500;
+  line-height: 24px;
+}
+
+#cartTitle {
+  color: #8fccb8;
+}
+
+#checkoutTitle {
+  color: white;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+}
+
+form {
+  max-width: 448px;
+}
+
+.input-group{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+input::placeholder {
+  color: #8fccb8;
+}
+
+input{
+  background-color: hsl(159, 50%, 20%);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  inline-size: 448px;
+  block-size: 56px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.btn-success {
+  padding: 12px 178.5008px;
+  inline-size: 448px;
+  background-color: #009963;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+#success {
+  padding: 24px;
+  background: #1e3a2a;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 32px;
+}
+
+#success p {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+input,input:valid,input:invalid,input:focus {
+  background-color: hsl(159, 50%, 20%);
+  color: #fff;
+}
+
+input:-webkit-autofill {
+  background-color: hsl(159, 50%, 20%) !important;
+  color: #fff !important;
+  box-shadow: 0 0 0px 1000px hsl(159, 50%, 20%) inset !important;
+  -webkit-text-fill-color: #fff !important; 
+}

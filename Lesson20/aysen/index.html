@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -12,13 +12,14 @@
         <h1>Book an Appointment</h1>
       </header>
 
-      <form class="booking" id="bookingForm">
+      <form class="booking" id="bookingForm" novalidate>
         <section class="calendar">
           <label for="date">Select a date</label>
-          <input type="date" id="date" />
+          <input type="date" id="date" aria-describedby="date-error" aria-invalid="false" />
+          <p id="date-error" class="error-message" aria-live="polite"></p>
 
           <h2 id="timeslots-heading">Available Time Slots</h2>
-          <fieldset class="timeslots" aria-labelledby="timeslots-heading">
+          <fieldset class="timeslots" aria-labelledby="timeslots-heading" aria-describedby="time-error">
             <legend class="hidden">Choose a time slot</legend>
             <button
               class="slot"
@@ -56,12 +57,15 @@
               16:00
             </button>
           </fieldset>
+          <p id="time-error" class="error-message" aria-live="polite"></p>
 
           <label for="name">Your Name</label>
-          <input type="text" id="name" />
+          <input type="text" id="name"  aria-describedby="name-error" aria-invalid="false"/>
+          <p id="name-error" class="error-message" aria-live="polite"></p>
 
           <label for="email">Your Email</label>
-          <input type="email" id="email" />
+          <input type="email" id="email" aria-describedby="email-error" aria-invalid="false"/>
+          <p id="email-error" class="error-message" aria-live="polite"></p>
         </section>
 
         <aside class="summary">
@@ -71,7 +75,6 @@
           <p>Name: <span id="selected-name">-</span></p>
           <p>Email: <span id="selected-email">-</span></p>
 
-          <p id="message"></p>
           <button type="submit" id="confirm">Confirm Booking</button>
         </aside>
       </form>

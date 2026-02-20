@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+
+    <title>Stitch Design</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body
+    class="size-full min-h-screen bg-[#fcf8f8] group/design-root overflow-x-hidden"
+    style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif"
+  >
+    <div class="layout-container h-full">
+      <header
+        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f3e7e8] px-10 py-3"
+      >
+        <div class="flex items-center gap-4 text-[#1b0e0f]">
+          <div class="size-4">
+            <svg
+              viewBox="0 0 48 48"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </div>
+          <h2
+            class="text-[#1b0e0f] text-lg font-bold leading-tight tracking-[-0.015em]"
+          >
+            FreshMart
+          </h2>
+        </div>
+      </header>
+      <main
+        class="px-40 flex justify-center py-5 flex-col max-w-[960px] mx-auto"
+      >
+        <h2
+          class="text-[#1b0e0f] text-xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4 mb-8"
+        >
+          Products
+        </h2>
+        <div id="products-container"></div>
+        <div class="">
+          <h2
+            class="text-[#1b0e0f] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4"
+          >
+            Cart Preview
+          </h2>
+
+          <p
+            class="text-[#974e52] text-sm font-normal leading-normal pb-3 pt-1 px-4"
+          >
+            Total Price:$<span id="totalPriceId">0</span>
+          </p>
+          <ul id="cartList" class="space-y-2 px-4 pt-2"></ul>
+
+          <div class="flex px-4 py-3 justify-end">
+            <button
+              id="clearAllButton"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#f3e7e8] text-[#1b0e0f] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Clear Cart
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <script src="./script.js"></script>
+    </div>
+  </body>
+</html>

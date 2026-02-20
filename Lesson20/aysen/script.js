@@ -1,13 +1,16 @@
 const dateInput = document.getElementById("date");
-let selectedDate = document.getElementById("selected-date");
-const selectedTime = document.getElementById("selected-time");
-const messageElement = document.getElementById("message");
-
 const nameInput = document.getElementById("name");
-const selectedName = document.getElementById("selected-name");
-
 const emailInput = document.getElementById("email");
+
+const selectedDate = document.getElementById("selected-date");
+const selectedName = document.getElementById("selected-name");
 const selectedEmail = document.getElementById("selected-email");
+const selectedTime = document.getElementById("selected-time");
+
+const dateError = document.getElementById("date-error");
+const timeError = document.getElementById("time-error");
+const nameError = document.getElementById("name-error");
+const emailError = document.getElementById("email-error");
 
 const formData = {
   date: null,
@@ -16,106 +19,143 @@ const formData = {
   email: null,
 };
 
-// Set today as the minimum allowed date
 const today = new Date().toISOString().split("T")[0];
 dateInput.setAttribute("min", today);
 
-//When the date is selected
-dateInput.addEventListener("change", function () {
-  if (dateInput.value === "") {
-    selectedDate.textContent = "-";
-    formData.date = null;
-  } else {
-    selectedDate.textContent = dateInput.value;
-    formData.date = dateInput.value;
+const timeSlotButtons = Array.from(document.getElementsByClassName("slot"));
 
-     messageElement.textContent = "";
+function updatePreview(id, value, formatter = (v) => v) {
+  document.getElementById(id).textContent = value || "-";
+  return formatter(value);
+}
+
+function clearSelectedSlots() {
+  for (const btn of timeSlotButtons) {
+    btn.classList.remove("selected");
+  }
+}
+
+function setError(inputElement, errorElement, message) {
+  errorElement.textContent = message;
+  if (inputElement) inputElement.setAttribute("aria-invalid", "true");
+}
+
+function clearError(inputElement, errorElement) {
+  errorElement.textContent = "";
+  if (inputElement) inputElement.setAttribute("aria-invalid", "false");
+}
+
+function looksLikeCode(str) {
+  const s = str.toLowerCase();
+  return (
+    /[<>{}()[\];=]/.test(str) ||
+    /(script|console\.|function|return|select\s|drop\s|insert\s|alert\s)/.test(
+      s,
+    )
+  );
+}
+
+function isValidName(name) {
+  return /^[\p{L}][\p{L}\s'-]{1,59}$/u.test(name);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+}
+
+dateInput.addEventListener("input", function () {
+  selectedDate.textContent = dateInput.value || "-";
+  formData.date = dateInput.value || null;
+
+  if (formData.date) {
+    clearError(dateInput,dateError);
   }
 });
 
-//When a time slot is clicked
-const timeSlotButtons = Array.from(document.getElementsByClassName("slot")); // Gets all buttons with class slot (the time buttons) and converts them into an array.
-
-// When the user leaves the name input, show it on the right
-nameInput.addEventListener("blur", function () {
-  const nameValue = nameInput.value.trim(); // remove extra spaces
-  const uppercaseName = nameValue.toUpperCase(); // convert to UPPERCASE
-
-  selectedName.textContent = uppercaseName || "-";
-  formData.name = uppercaseName; 
-
-  if (uppercaseName) messageElement.textContent = "";
-});
-
-// When the user leaves the email input, show it on the right
-emailInput.addEventListener("blur", function () {
-  const emailValue = emailInput.value.trim().toLowerCase(); // lowercase for emails
-  selectedEmail.textContent = emailValue || "-";
-  formData.email = emailValue;
-
-    if (emailValue) messageElement.textContent = "";
-});
-
-//Adds a click event to each time button:
-//	When clicked, show the time and store it in formData.
 for (const element of timeSlotButtons) {
   element.addEventListener("click", function () {
+    clearSelectedSlots();
+    element.classList.add("selected");
+
     selectedTime.textContent = element.textContent;
     formData.time = element.textContent;
-
-     messageElement.textContent = "";
+    clearError(null,timeError);
   });
 }
+
+nameInput.addEventListener("input", function () {
+  const nameValue = nameInput.value.trim();
+  const uppercaseName = nameValue.toUpperCase();
+
+  selectedName.textContent = uppercaseName || "-";
+  formData.name = uppercaseName|| null;
+
+  if (formData.name) clearError(nameInput,nameError);
+});
+
+emailInput.addEventListener("input", function () {
+  const emailValue = emailInput.value.trim().toLowerCase();
+  selectedEmail.textContent = emailValue || "-";
+  formData.email = emailValue|| null;
+
+  if (formData.email) clearError(emailInput,emailError);
+});
 
 document
   .getElementById("bookingForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); //Stop the page from reloading (default behavior).
-    let formError = "";
+    event.preventDefault();
 
-    if (
-      !!formData.date &&
-      !!formData.time &&
-      !!formData.name &&
-      !!formData.email
-    ) {
-      // (!!> are used to convert a value to a boolean
-      //If both date and time are filled:  (not null or empty)
-
-     
-      //messageElement.textContent = "Form submitted successfully";
-     // messageElement.textContent = `Thank you, ${formData.name}! Your appointment is booked for ${formData.date} at ${formData.time}.`;
-      // TODO: Update Date and Time on the confirmation card
-
-      // Fill in confirmation card with submitted info
-      document.getElementById("confirm-date").textContent = formData.date;
-      document.getElementById("confirm-time").textContent = formData.time;
-      document.getElementById("confirm-name").textContent = formData.name;
-      document.getElementById("confirm-email").textContent = formData.email;
-
-      document.getElementById("bookingForm").classList.add("hidden"); // “Hide the form from the page.”   /This adds the class hidden to that element. So after this line runs, your form becomes: <form id="bookingForm" class="booking hidden">
-      document.getElementById("confirmation-card").classList.remove("hidden"); //“Make the confirmation card visible.”
-    }
-
-    // If fields are missing:Add error messages	Show them in the message box.
+    let hasError = false;
     if (!formData.date) {
-      formError = "Date is required.\n";
-      //console.log("formError", formError);
+      setError(dateInput,dateError, "Date is required.");
+      hasError = true;
+    } else {
+      clearError(dateInput,dateError);
     }
 
     if (!formData.time) {
-      formError = formError + "Time is required.\n";
-      //console.log("formError", formError);
+      setError(null,timeError, "Time is required. Please select a time slot.");
+      hasError = true;
+    } else {
+      clearError(null,timeError);
     }
 
     if (!formData.name) {
-      formError += "Name is required\n";
-    }
-    if (!formData.email) {
-      formError += "Email is required.\n";
+      setError(nameInput, nameError, "Name is required.");
+      hasError = true;
+    } else if (looksLikeCode(formData.name) || !isValidName(formData.name)) {
+      setError(
+        nameInput,
+        nameError,
+        "Please enter a real name (letters only).",
+      );
+      hasError = true;
+    } else {
+      clearError(nameInput,nameError);
     }
 
-    if (formError) {
-      messageElement.textContent = formError;
+    if (!formData.email) {
+      setError(emailInput,emailError, "Email is required.");
+      hasError = true;
+    } else if (looksLikeCode(formData.email) || !isValidEmail(formData.email)) {
+      setError(
+        emailInput,
+        emailError,
+        "Please enter a valid email. Example: name@example.com",
+      );
+      hasError = true;
+    } else {
+      clearError(emailInput,emailError);
     }
+
+    if (hasError) return;
+
+    document.getElementById("confirm-date").textContent = formData.date;
+    document.getElementById("confirm-time").textContent = formData.time;
+    document.getElementById("confirm-name").textContent = formData.name;
+    document.getElementById("confirm-email").textContent = formData.email;
+
+    document.getElementById("bookingForm").classList.add("hidden");
+    document.getElementById("confirmation-card").classList.remove("hidden");
   });

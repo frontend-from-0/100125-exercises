@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.booking {
+  display: flex;
+  gap: 2rem;
+}
+
+.calendar {
+  flex: 2;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.calendar label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#date,
+#name,
+#email {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  margin-bottom: 0.4rem;
+}
+
+fieldset {
+  border: none;
+  margin-bottom: 1.2rem;
+}
+
+.timeslots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.slot {
+  padding: 1rem;
+  background-color: #eee;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.slot:hover {
+  background-color: #ddd;
+}
+
+.slot.selected {
+  background-color: #ced1d8;
+}
+
+#confirm {
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#confirm:hover {
+  background-color: #ced1d8;
+}
+
+.summary {
+  flex: 1.6;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.summary p {
+  margin: 1.1rem 0;
+  line-height: 1.4;
+}
+
+#confirmation-card {
+  /* background-color: #e8ecef; */
+  background-color: #ced1d8;
+  border: 2px solid #17181a;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+
+.error-message {
+  margin-top: 0;
+  padding-bottom: 10px;
+  color: #888;
+  font-size: medium;
+}

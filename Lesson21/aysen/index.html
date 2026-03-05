@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <form novalidate id="checkoutForm" method="post">
+        <h1>Checkout</h1>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email@example.com"
+            name="email"
+          />
+          <p id="emailError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            type="tel"
+            placeholder="555 123 4567"
+            name="phoneNumber"
+          />
+          <p id="phoneError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="firstname">First Name</label>
+          <input
+            id="firstname"
+            type="text"
+            placeholder="Sophia"
+            name="firstname"
+          />
+          <p id="firstNameError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="lastname">Last Name</label>
+          <input
+            id="lastname"
+            type="text"
+            placeholder="Clark"
+            name="lastname"
+          />
+          <p id="lastNameError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="address">Address</label>
+          <input
+            id="address"
+            type="text"
+            placeholder="123 Maple Street"
+            name="address"
+          />
+          <p id="addressError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="city">City</label>
+          <input id="city" type="text" placeholder="Anytown" name="city" />
+          <p id="cityError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="state">State</label>
+          <input id="state" type="text" placeholder="CA" name="state" />
+          <p id="stateError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="zipcode">Zip Code</label>
+          <input id="zipcode" type="text" placeholder="90210" name="zipcode" />
+          <p id="zipcodeError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="cardnumber">Card Number</label>
+          <input
+            id="cardnumber"
+            type="text"
+            placeholder="1234 5678 9101 1121"
+            name="cardnumber"
+          />
+          <p id="cardNumberError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="expirationDate">Expiration Date</label>
+          <input
+            id="expirationDate"
+            type="text"
+            placeholder="MM/YY"
+            name="expirationDate"
+          />
+          <p id="expirationDateError" class="input-error hidden"></p>
+        </div>
+
+        <div class="input-group">
+          <label for="cvv">CVV</label>
+          <input id="cvv" type="text" placeholder="123" name="cvv" />
+          <p id="cvvError" class="input-error hidden"></p>
+        </div>
+
+        <button type="submit" class="btn-success">Place Order</button>
+      </form>
+      <div class="hidden" id="success">
+        <p id="greetingMessage"></p>
+        <p id="orderPlacedMessage"></p>
+        <p id="emailConfirmationMessage"></p>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>
